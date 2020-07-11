@@ -635,6 +635,30 @@
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamtape.js"
+        },
+        "abcvideo": {
+            "name": "abcvideo",
+            "domain": [
+                "abcvideo.cc"
+            ],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/abcvideo.js?v2"
+        },
+        "supervideo": {
+            "name": "supervideo",
+            "domain": [
+                "supervideo.tv"
+            ],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/supervideo.js?v2"
+        },
+        "oggy": {
+            "name": "oggy",
+            "domain": [
+                "oogly.io"
+            ],
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/oggy.js?v2"
         }
     }
 }
