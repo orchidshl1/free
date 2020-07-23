@@ -3,7 +3,7 @@
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
-            "version": "0.4.15",
+            "version": "0.4.16",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/5movies.js",
             "type": [
                 "movie",
@@ -13,7 +13,7 @@
         "fmoviesvc": {
             "name": "fmoviesvc",
             "domain": "fmovies.vc",
-            "version": "0.4.17",
+            "version": "0.4.18",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/fmoviesvc.js",
             "type": [
                 "movie",
@@ -23,7 +23,7 @@
         "m4u": {
             "name": "m4u",
             "domain": "m4u.fun",
-            "version": "0.1.15",
+            "version": "0.1.16",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/m4u.js",
             "type": [
                 "movie",
@@ -267,7 +267,7 @@
         "1primewire": {
             "name": "1primewire",
             "domain": "1primewire.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/1primewire.js?v1",
             "type": [
                 "movie",
@@ -615,10 +615,12 @@
         "hls": {
             "name": "hls",
             "domain": [
-                "loadshare.org"
+                "loadshare.org",
+                "fastmedia.monster",
+                "smart_io_stream/"
             ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/hls.js"
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/hls.js?v2"
         },
         "wewon": {
             "name": "wewon",
