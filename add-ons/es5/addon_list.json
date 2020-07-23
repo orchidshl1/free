@@ -307,7 +307,7 @@
         "watch123movies": {
             "name": "watch123movies",
             "domain": "watch123movies.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/watch123movies.js?v1",
             "type": [
                 "movie",
@@ -335,7 +335,7 @@
         "uwatchfree": {
             "name": "uwatchfree",
             "domain": "uwatchfree.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/uwatchfree.js?v2",
             "type": [
                 "movie",
