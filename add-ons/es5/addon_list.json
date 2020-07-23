@@ -297,7 +297,7 @@
         "popcorntimeis": {
             "name": "popcorntimeis",
             "domain": "popcorntimeis.dis",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/popcorntimeis.js?v1",
             "type": [
                 "movie",
