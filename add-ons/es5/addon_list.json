@@ -210,7 +210,7 @@
         "newepisodes": {
             "name": "newepisodes",
             "domain": "newepisodes.dis",
-            "version": "0.0.10",
+            "version": "0.0.11",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/newepisodes.js?v10",
             "type": [
                 "tv"
@@ -219,7 +219,7 @@
         "yomoviesit": {
             "name": "yomoviesit",
             "domain": "yomoviesit.dis",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/yomoviesit.js",
             "type": [
                 "movie",
