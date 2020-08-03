@@ -550,9 +550,10 @@
             "domain": [
                 "fembed.com",
                 "feurl.com",
-                "streamhoe.online"
+                "streamhoe.online",
+                "gcloud.live"
             ],
-            "version": "0.0.13",
+            "version": "0.0.14",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js"
         },
         "vcstream": {
