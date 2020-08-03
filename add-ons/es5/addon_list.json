@@ -351,6 +351,16 @@
                 "movie",
                 "tv"
             ]
+        },
+        "ffmovies": {
+            "name": "ffmovies",
+            "domain": "ffmovies.dis",
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/ffmovies.js?v2",
+            "type": [
+                "movie",
+                "tv"
+            ]
         }
     },
     "hosts": {
