@@ -13,13 +13,14 @@ var Videobin = function () {
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
+        this.agent = '';
     }
 
     _createClass(Videobin, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var httpRequest, html;
+                var httpRequest, agents, agent, html;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
@@ -30,22 +31,32 @@ var Videobin = function () {
                                 // const dieStatusText = "";
 
                                 _context.next = 3;
-                                return httpRequest.getHTML(url, { 'User-Agent': 'Firefox 59' });
+                                return httpRequest.getHTML('https://gist.githubusercontent.com/pzb/b4b6f57144aea7827ae4/raw/cf847b76a142955b1410c8bcef3aabe221a63db1/user-agents.txt');
 
                             case 3:
+                                agents = _context.sent;
+
+                                agents = agents.split("\n");
+                                agent = agents[Math.floor(Math.random() * agents.length)];
+
+                                this.agent = agent;
+                                _context.next = 9;
+                                return httpRequest.getHTML(url, { 'User-Agent': agent });
+
+                            case 9:
                                 html = _context.sent;
 
                                 if (!html.includes("Video Was Deleted 1")) {
-                                    _context.next = 6;
+                                    _context.next = 12;
                                     break;
                                 }
 
                                 return _context.abrupt('return', false);
 
-                            case 6:
+                            case 12:
                                 return _context.abrupt('return', html);
 
-                            case 7:
+                            case 13:
                             case 'end':
                                 return _context.stop();
                         }

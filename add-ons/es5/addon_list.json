@@ -604,7 +604,7 @@
             "domain": [
                 "vidia.tv"
             ],
-            "version": "0.0.7",
+            "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidiatv.js"
         },
         "upstream": {
@@ -672,6 +672,14 @@
             ],
             "version": "0.0.2",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/oggy.js?v2"
+        },
+        "videobin": {
+            "name": "videobin",
+            "domain": [
+                "videobin.co"
+            ],
+            "version": "0.0.22",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/videobin.js?v2"
         }
     }
 }

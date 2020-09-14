@@ -62,7 +62,7 @@ var Vidiatv = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, html, $, results, size, m, a;
+                var _libs, httpRequest, cheerio, arrVideoQuality, html, $, results, size, m, a, ff, reg;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -106,22 +106,55 @@ var Vidiatv = function () {
                                 _context2.prev = 11;
                                 m = void 0, a = void 0;
 
+                                /*m = html.match(/sources: \[{file:"([^"]+)/);
+                                 if(m != undefined)
+                                    results.push({
+                                        file: m[1], label: 'NOR', type: "direct" , size: size
+                                    });
+                                */
 
-                                m = html.match(/sources: \[{file:"([^"]+)/);
+                                m = html.split('eval(function(p,a,c,k,e,d)')[1];
+                                m = m.split('</script>')[0].trim();
+                                m = 'eval(function(p,a,c,k,e,d)' + m;
 
-                                if (m != undefined) results.push({
+                                ff = m.split('return p}')[1];
+
+                                ff = 'a = fuckfuck' + ff;
+                                ff = ff.replace(/\)$/, '');
+                                eval(ff);
+                                console.log(a);
+                                reg = /file"?:\s?"([^"]+)/g;
+
+                            case 22:
+                                if (!(m = reg.exec(a))) {
+                                    _context2.next = 28;
+                                    break;
+                                }
+
+                                if (!(m[1].indexOf('jpg') != -1 || m[1].indexOf('png') != -1)) {
+                                    _context2.next = 25;
+                                    break;
+                                }
+
+                                return _context2.abrupt('continue', 22);
+
+                            case 25:
+                                if (m[1].indexOf('.mp4') != -1) results.push({
                                     file: m[1], label: 'NOR', type: "direct", size: size
                                 });
-
-                                _context2.next = 20;
+                                _context2.next = 22;
                                 break;
 
-                            case 17:
-                                _context2.prev = 17;
+                            case 28:
+                                _context2.next = 33;
+                                break;
+
+                            case 30:
+                                _context2.prev = 30;
                                 _context2.t0 = _context2['catch'](11);
                                 throw new Error(_context2.t0);
 
-                            case 20:
+                            case 33:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -130,12 +163,12 @@ var Vidiatv = function () {
                                     result: results
                                 });
 
-                            case 21:
+                            case 34:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[11, 17]]);
+                }, _callee2, this, [[11, 30]]);
             }));
 
             function getLink(_x2) {
