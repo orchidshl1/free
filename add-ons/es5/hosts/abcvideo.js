@@ -127,7 +127,7 @@ var Abcvideo = function () {
                                 return _context2.abrupt('return', {
                                     host: {
                                         size: size,
-                                        url: url,
+                                        url: url.indexOf('-embed') == -1 ? url.replace('c/', 'c/embed-').replace('.html', '') + '.html' : url,
                                         name: "Abcvideo"
                                     },
                                     result: []
