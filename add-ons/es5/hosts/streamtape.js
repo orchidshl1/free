@@ -113,10 +113,18 @@ var Streamtape = function () {
 
                                 u = u + '&stream=1';
 
-                                _context2.next = 15;
-                                return httpRequest.isLinkDie(u);
+                                if (!(u.indexOf('://') == -1)) {
+                                    _context2.next = 15;
+                                    break;
+                                }
+
+                                throw new Error('NO LINK');
 
                             case 15:
+                                _context2.next = 17;
+                                return httpRequest.isLinkDie(u);
+
+                            case 17:
                                 isDie = _context2.sent;
 
                                 result.push({ label: "NOR", file: u, type: 'direct', size: isDie });
@@ -129,7 +137,7 @@ var Streamtape = function () {
                                     result: result
                                 });
 
-                            case 18:
+                            case 20:
                             case 'end':
                                 return _context2.stop();
                         }

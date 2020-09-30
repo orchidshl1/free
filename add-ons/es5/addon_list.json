@@ -646,8 +646,8 @@
             "domain": [
                 "streamtape.com"
             ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamtape.js"
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamtape.js?v2"
         },
         "abcvideo": {
             "name": "abcvideo",
