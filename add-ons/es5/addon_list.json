@@ -612,8 +612,8 @@
             "domain": [
                 "upstream.to"
             ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/upstream.js"
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/upstream.js?v2"
         },
         "vidsrc": {
             "name": "vidsrc",
