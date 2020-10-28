@@ -1,15 +1,5 @@
 {
     "providers": {
-        "simplestream": {
-            "name": "simplestream",
-            "domain": "simplestream.in",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/simplestream.js?v1",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "watchfilms": {
             "name": "watchfilms",
             "domain": "watchfilms.xyz",
