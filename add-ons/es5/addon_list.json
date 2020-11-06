@@ -9,6 +9,16 @@
                 "movie"
             ]
         },
+        "icefilmsinfo": {
+            "name": "icefilmsinfo",
+            "domain": "icefilms-info.com",
+            "version": "0.0.1",
+            "url": "http://fakfak.streammov.net/add-ons/es5/providers/icefilmsinfo.js?v001",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
@@ -655,8 +665,8 @@
             "domain": [
                 "streamtape.com"
             ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamtape.js"
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamtape.js?v002"
         },
         "abcvideo": {
             "name": "abcvideo",
