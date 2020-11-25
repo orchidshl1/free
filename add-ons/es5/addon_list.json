@@ -9,16 +9,6 @@
                 "movie"
             ]
         },
-        "icefilmsinfo": {
-            "name": "icefilmsinfo",
-            "domain": "icefilms-info.com",
-            "version": "0.0.1",
-            "url": "http://fakfak.streammov.net/add-ons/es5/providers/icefilmsinfo.js?v001",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
