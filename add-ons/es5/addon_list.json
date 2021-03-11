@@ -588,8 +588,8 @@
             "domain": [
                 "clipwatching.com"
             ],
-            "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/clipwatching.js"
+            "version": "0.0.18",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/clipwatching.js?v=018"
         },
         "mixdrop": {
             "name": "mixdrop",
@@ -615,6 +615,14 @@
             ],
             "version": "0.0.8",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/vidiatv.js"
+        },
+        "upstream": {
+            "name": "upstream",
+            "domain": [
+                "upstream.to"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/upstream.js"
         },
         "vidsrc": {
             "name": "vidsrc",

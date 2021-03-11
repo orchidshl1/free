@@ -70,7 +70,7 @@ var ClipWatching = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, size, r1, r2, r;
+                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, reg, size, r1, r2, r;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -100,7 +100,7 @@ var ClipWatching = function () {
                                     m = html.split('eval(function(p,a,c,k,e,d)')[1];
                                     m = m.split('</script>')[0].trim();
                                     m = 'eval(function(p,a,c,k,e,d)' + m;
-                                     let ff = m.split('return p}')[1];
+                                      let ff = m.split('return p}')[1];
                                     ff = 'a = fuckfuck' + ff;
                                     ff = ff.replace(/\)$/, '');
                                     eval(ff);
@@ -117,30 +117,39 @@ var ClipWatching = function () {
                                 }
                                 */
 
-                                m = html.match(/sources: \[{src: "([^"]+)/);
+                                m = '';
+                                reg = /{file:"([^"]+)/mg;
+
+                            case 10:
+                                if (!(m = reg.exec(html))) {
+                                    _context2.next = 22;
+                                    break;
+                                }
 
                                 if (!(m[1].indexOf('http') !== 0)) {
-                                    _context2.next = 11;
+                                    _context2.next = 13;
                                     break;
                                 }
 
                                 throw new Error('invalid');
 
-                            case 11:
-                                _context2.next = 13;
+                            case 13:
+                                _context2.next = 15;
                                 return httpRequest.isLinkDie(m[1]);
 
-                            case 13:
+                            case 15:
                                 size = _context2.sent;
                                 r1 = Math.floor(Math.random() * 5) + 2;
                                 r2 = Math.floor(Math.random() * 9) + 1;
                                 r = '0.' + r1 + r2;
 
-
                                 results.push({
                                     file: m[1], label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r
                                 });
+                                _context2.next = 10;
+                                break;
 
+                            case 22:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -149,7 +158,7 @@ var ClipWatching = function () {
                                     result: results
                                 });
 
-                            case 19:
+                            case 23:
                             case 'end':
                                 return _context2.stop();
                         }
