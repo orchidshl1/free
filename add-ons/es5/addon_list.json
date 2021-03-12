@@ -591,6 +591,14 @@
             "version": "0.0.18",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/clipwatching.js?v=018"
         },
+        "aparat": {
+            "name": "aparat",
+            "domain": [
+                "aparat.cam"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/aparat.js?v1"
+        },
         "mixdrop": {
             "name": "mixdrop",
             "domain": [
