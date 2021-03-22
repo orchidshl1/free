@@ -6,12 +6,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function fuckfuck(p, a, c, k, e, d) {
-    while (c--) {
-        if (k[c]) p = p.replace(new RegExp('\\b' + c.toString(a) + '\\b', 'g'), k[c]);
-    }return p;
-}
-
 var Upstream = function () {
     function Upstream(props) {
         _classCallCheck(this, Upstream);
@@ -98,7 +92,7 @@ var Upstream = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, $, size, results, h1, s1, a, m, ff, s;
+                var _libs, httpRequest, cheerio, sources, html, m, arr_param, stringScript, n, reg, linkEmbed, size, r1, r2, r;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -129,7 +123,6 @@ var Upstream = function () {
                                 throw new Error("LINK DIE");
 
                             case 9:
-                                $ = cheerio.load(html);
 
                                 /*
                                 let startIndex  = html.indexOf('jwplayer("vplayer").setup');
@@ -155,81 +148,53 @@ var Upstream = function () {
                                  });
                                  await Promise.all(arrPromise);
                                 */
+                                m = html.match(/eval(.+?(?=split))/);
 
-                                /*
-                                let m = html.match(/sources: \[{file:"([^"]+)/);
-                                if(m != undefined) {
-                                    if( m[1].search('https://') != -1 || m[1].search('http://') != -1 ) {
-                                        let isDie = await httpRequest.isLinkDie(m[1]);
-                                        let s = {
-                                            label: "NOR",
-                                            file: m[1],
-                                            type: "direct",
-                                            size: isDie ? isDie : "",
-                                        };
-                                        sources.push(s);
-                                    }
-                                }
-                                 return {
-                                    host: {
-                                        url: url,
-                                        name: "Upstream"
-                                    },
-                                    result: sources
-                                }
-                                */
-
-                                size = 'NOR';
-                                results = [];
-                                h1 = $('.section').html();
-                                s1 = h1.match(/\d+(\.\d+)?\s(GB?|MB?)/i);
-
-                                size = s1 != null ? s1[0] : 0;
-                                if (size.toLowerCase().indexOf('mb') != -1) {
-                                    size = '0.' + size.replace(/\smb?/i, '').replace('.', '');
-                                }
-
-                                if (size !== 0) size = parseFloat(size.replace(/\sgb/i, '')).toFixed(2);
-
-                                a = void 0, m = void 0;
-
-                                m = html.split('eval(function(p,a,c,k,e,d)')[1];
-                                m = m.split('</script>')[0].trim();
-                                m = 'eval(function(p,a,c,k,e,d)' + m;
-
-                                ff = m.split('return p}')[1];
-
-                                ff = 'a = fuckfuck' + ff;
-                                ff = ff.replace(/\)$/, '');
-                                eval(ff);
-                                console.log(a);
-                                m = a.match(/file:"([^"]+)/);
-
-                                if (!(m == undefined)) {
-                                    _context2.next = 29;
+                                if (!(m != undefined)) {
+                                    _context2.next = 26;
                                     break;
                                 }
 
-                                throw new Error('NO ups');
+                                arr_param = m[1] + "split('|')))";
+                                stringScript = eval(arr_param);
+                                n = '';
+                                reg = /{file:"([^"]+)/mg;
 
-                            case 29:
-                                s = {
-                                    label: "NOR",
-                                    file: m[1],
-                                    type: "direct",
-                                    size: size
-                                };
+                                n = reg.exec(stringScript);
 
-                                results.push(s);
+                                if (!(n[1].indexOf('http') !== 0)) {
+                                    _context2.next = 18;
+                                    break;
+                                }
+
+                                throw new Error('invalid');
+
+                            case 18:
+                                linkEmbed = n[1].replace(/{file:"/, '');
+                                _context2.next = 21;
+                                return httpRequest.isLinkDie(linkEmbed);
+
+                            case 21:
+                                size = _context2.sent;
+                                r1 = Math.floor(Math.random() * 5) + 2;
+                                r2 = Math.floor(Math.random() * 9) + 1;
+                                r = '0.' + r1 + r2;
+
+
+                                sources.push({
+                                    file: linkEmbed, label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r, referer: 'https://upstream.to/'
+                                });
+
+                            case 26:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "Upstream"
                                     },
-                                    result: results
+                                    result: sources
                                 });
 
-                            case 32:
+                            case 27:
                             case 'end':
                                 return _context2.stop();
                         }
