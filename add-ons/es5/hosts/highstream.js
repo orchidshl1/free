@@ -12,16 +12,16 @@ function fuckfuck(p, a, c, k, e, d) {
     }return p;
 }
 
-var ClipWatching = function () {
-    function ClipWatching(props) {
-        _classCallCheck(this, ClipWatching);
+var Highstream = function () {
+    function Highstream(props) {
+        _classCallCheck(this, Highstream);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(ClipWatching, [{
+    _createClass(Highstream, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -153,7 +153,7 @@ var ClipWatching = function () {
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "ClipWatch"
+                                        name: "Highstream"
                                     },
                                     result: results
                                 });
@@ -174,9 +174,9 @@ var ClipWatching = function () {
         }()
     }]);
 
-    return ClipWatching;
+    return Highstream;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new ClipWatching({ libs: libs, settings: settings });
+    return new Highstream({ libs: libs, settings: settings });
 };
