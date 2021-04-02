@@ -591,6 +591,14 @@
             "version": "0.0.18",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/clipwatching.js?v=018"
         },
+        "highstream": {
+            "name": "highstream",
+            "domain": [
+                "highstream.tv"
+            ],
+            "version": "0.0.1",
+            "url": "http://fakfak.streammov.net/add-ons/es5/hosts/highstream.js?1"
+        },
         "aparat": {
             "name": "aparat",
             "domain": [
