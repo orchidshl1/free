@@ -597,7 +597,7 @@
                 "highstream.tv"
             ],
             "version": "0.0.1",
-            "url": "http://fakfak.streammov.net/add-ons/es5/hosts/highstream.js?1"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/highstream.js?v1"
         },
         "aparat": {
             "name": "aparat",
@@ -613,7 +613,7 @@
                 "wolfstream.tv"
             ],
             "version": "0.0.1",
-            "url": "http://fakfak.streammov.net/add-ons/es5/hosts/wolfstream.js?v1"
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/wolfstream.js?v1"
         },
         "mixdrop": {
             "name": "mixdrop",
