@@ -115,7 +115,7 @@ var Projectfreetv = function () {
                                 throw new Error('NOT_FOUND');
 
                             case 13:
-                                alloweds = ['vidoza.net', 'videobin.co', 'mixdrop.co', 'ok.ru', 'cloudvideo.tv', 'clipwatching.com', 'highstream.tv', 'vidlox.me', 'vshare.eu', 'jetload.net'];
+                                alloweds = ['vidoza.net', 'videobin.co', 'mixdrop.co', 'ok.ru', 'cloudvideo.tv', 'clipwatching.com', 'highstream.tv', 'wolfstream.tv', 'vidlox.me', 'vshare.eu', 'jetload.net'];
                                 re = /callvalue\('\d+','\d+','([^']+)/g;
                                 m = void 0;
                                 hosts = [];

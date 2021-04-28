@@ -607,6 +607,14 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/aparat.js?v1"
         },
+        "wolfstream": {
+            "name": "wolfstream",
+            "domain": [
+                "wolfstream.tv"
+            ],
+            "version": "0.0.1",
+            "url": "http://fakfak.streammov.net/add-ons/es5/hosts/wolfstream.js?v1"
+        },
         "mixdrop": {
             "name": "mixdrop",
             "domain": [

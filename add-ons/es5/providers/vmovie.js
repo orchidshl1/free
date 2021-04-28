@@ -130,7 +130,7 @@ var Vmovie = function () {
                                 htmlDetail = _context2.sent;
                                 $ = cheerio.load(htmlDetail);
                                 servers = $('#olmt tbody tr');
-                                alloweds = ['cloudvideo', 'vidia', 'videobin', 'vidoza', 'vidlox', 'upstream', 'clipwatching', 'mixdrop', 'highstream'];
+                                alloweds = ['cloudvideo', 'vidia', 'videobin', 'vidoza', 'vidlox', 'upstream', 'clipwatching', 'mixdrop', 'highstream', 'wolfstream'];
 
                                 servers.each(function () {
                                     var name = $(this).find('td:nth-child(2)').text().toLowerCase();

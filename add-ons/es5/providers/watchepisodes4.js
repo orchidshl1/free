@@ -178,7 +178,7 @@ var WatchEpisode = function () {
 
                                     if (linkEmbed.indexOf('https://') != -1 || linkEmbed.indexOf('http://') != -1) {
 
-                                        var hosts_allowed = ['onlystream.tv', 'mixdrop.co', 'vidlox.me', 'vidoza.net', 'vshare.eu', 'clipwatching.com', 'vidtodo.com', 'highstream.tv'];
+                                        var hosts_allowed = ['onlystream.tv', 'mixdrop.co', 'vidlox.me', 'vidoza.net', 'vshare.eu', 'clipwatching.com', 'vidtodo.com', 'highstream.tv', 'wolfstream.tv'];
 
                                         if (hosts_allowed.includes(getDomain(linkEmbed))) {
 
