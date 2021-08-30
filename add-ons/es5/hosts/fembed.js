@@ -50,24 +50,36 @@ var Fembed = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, arrPromise;
+                var _libs, httpRequest, cheerio, s, id, u, html, data, results, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                sources = [];
+                                //console.log('xxxxxx start fembed');
+
+                                _context3.prev = 1;
+
+                                url = url.replace(/#.*$/, '');
+
                                 s = url.split('/');
                                 id = s[s.length - 1];
-                                u = 'https://feurl.com/api/source/' + id;
-                                _context3.next = 7;
-                                return httpRequest.post(u, {}, { r: '', d: 'www.fembed.com' });
+                                u = 'https://dutrag.com/api/source/' + id;
+                                _context3.next = 8;
+                                return httpRequest.post(u, {
+                                    'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
+                                }, {
+                                    r: '',
+                                    d: 'dutrag.com'
+                                });
 
-                            case 7:
+                            case 8:
                                 html = _context3.sent;
                                 data = html.data.data;
                                 results = [];
+                                //console.log('xxxxxx' + 'get data');
+
                                 arrPromise = data.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
                                         var label, isDie;
@@ -84,9 +96,12 @@ var Fembed = function () {
 
 
                                                         if (isDie != false) {
-
+                                                            console.log('xxxxxx' + 'push link data');
                                                             results.push({
-                                                                file: val.file, label: label, type: "direct", size: isDie
+                                                                file: val.file,
+                                                                label: label,
+                                                                type: "direct",
+                                                                size: isDie
                                                             });
                                                         }
 
@@ -102,10 +117,12 @@ var Fembed = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 13;
+                                //console.log('xxxxxx' + 'day promise xu ly');
+
+                                _context3.next = 14;
                                 return Promise.all(arrPromise);
 
-                            case 13:
+                            case 14:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
@@ -114,12 +131,23 @@ var Fembed = function () {
                                     result: results
                                 });
 
-                            case 14:
+                            case 17:
+                                _context3.prev = 17;
+                                _context3.t0 = _context3['catch'](1);
+                                return _context3.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Fembed"
+                                    },
+                                    result: []
+                                });
+
+                            case 20:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee3, this, [[1, 17]]);
             }));
 
             function getLink(_x2) {
@@ -134,5 +162,8 @@ var Fembed = function () {
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Fembed({ libs: libs, settings: settings });
+    return new Fembed({
+        libs: libs,
+        settings: settings
+    });
 };

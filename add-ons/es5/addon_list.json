@@ -131,7 +131,7 @@
         "thanrd": {
             "name": "thanrd",
             "domain": "thanrd.dis",
-            "version": "0.0.15",
+            "version": "0.0.16",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/thanrd.js",
             "type": [
                 "movie",
@@ -572,8 +572,16 @@
                 "streamhoe.online",
                 "gcloud.live"
             ],
-            "version": "0.0.14",
+            "version": "0.0.15",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js"
+        },
+        "userload": {
+            "name": "userload",
+            "domain": [
+                "userload.co"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/userload.js"
         },
         "vcstream": {
             "name": "vcstream",
