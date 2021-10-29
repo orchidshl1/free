@@ -106,8 +106,6 @@ var Videobin = function () {
 
 
                                 if (!newUrl.includes("embed")) {
-
-                                    // https://vidlox.tv/vunb9b0ihb8d
                                     _parts = newUrl.split("/");
 
                                     _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
