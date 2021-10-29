@@ -64,32 +64,34 @@ var Vidcloud = function () {
                             case 4:
                                 html = _context2.sent;
 
+                                console.log(html);
+
                                 if (!(html == false)) {
-                                    _context2.next = 8;
+                                    _context2.next = 9;
                                     break;
                                 }
 
                                 console.log('vidtodo no link');
                                 throw new Error("vidtodo LINK DIE");
 
-                            case 8:
+                            case 9:
                                 reg = /file:\s?'?"?([^'?"?]+)/g;
                                 m = void 0;
 
-                            case 10:
+                            case 11:
                                 if (!(m = reg.exec(html))) {
-                                    _context2.next = 16;
+                                    _context2.next = 17;
                                     break;
                                 }
 
                                 if (!(m[1].indexOf('m3u8') == -1)) {
-                                    _context2.next = 13;
+                                    _context2.next = 14;
                                     break;
                                 }
 
-                                return _context2.abrupt('continue', 10);
+                                return _context2.abrupt('continue', 11);
 
-                            case 13:
+                            case 14:
 
                                 sources.push({
                                     label: 'NOR',
@@ -97,10 +99,10 @@ var Vidcloud = function () {
                                     type: "direct",
                                     size: "NOR"
                                 });
-                                _context2.next = 10;
+                                _context2.next = 11;
                                 break;
 
-                            case 16:
+                            case 17:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -109,7 +111,7 @@ var Vidcloud = function () {
                                     result: sources
                                 });
 
-                            case 17:
+                            case 18:
                             case 'end':
                                 return _context2.stop();
                         }

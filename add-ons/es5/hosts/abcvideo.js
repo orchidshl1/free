@@ -76,7 +76,7 @@ var Abcvideo = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, results, html, m, size;
+                var _libs, httpRequest, cheerio, sources, html, m, arr_param, stringScript, n, reg, linkEmbed, _size, r1, r2, _r;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -91,7 +91,7 @@ var Abcvideo = function () {
 
                             case 2:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                results = [];
+                                sources = [];
                                 _context2.next = 6;
                                 return this.checkLive(url);
 
@@ -106,34 +106,70 @@ var Abcvideo = function () {
                                 throw new Error("LINK DIE");
 
                             case 9:
-                                if (!(html.toLowerCase().indexOf('File Not Found'.toLowerCase()) != -1)) {
-                                    _context2.next = 11;
+                                //console.log('User-agent Abcvideoxxx nodie');
+
+                                // if(html.toLowerCase().indexOf('File Not Found'.toLowerCase()) != -1) throw new Error('404');
+
+                                // console.log(html);
+                                // let m = html.match(/\d+(\.\d+)?\s(GB|MB)/i);
+                                // let size = m != null ? m[0] : 0;
+
+                                // if(size.toLowerCase().indexOf('mb') != -1) {
+                                //     size = '0.' + size.replace(/\smb?/i, '').replace('.', '');
+                                // }
+
+                                // if(size !== 0) size = parseFloat(size.replace(/\sgb/i, '')).toFixed(2);
+                                m = html.match(/eval(.+?(?=split))/);
+
+                                if (!(m != undefined)) {
+                                    _context2.next = 27;
                                     break;
                                 }
 
-                                throw new Error('404');
+                                //console.log(m[1]);
+                                arr_param = m[1] + "split('|')))";
+                                stringScript = eval(arr_param);
 
-                            case 11:
-                                m = html.match(/\d+(\.\d+)?\s(GB|MB)/i);
-                                size = m != null ? m[0] : 0;
+                                console.log(stringScript);
+                                n = '';
+                                reg = /{file:"([^"]+)/mg;
 
+                                n = reg.exec(stringScript);
 
-                                if (size.toLowerCase().indexOf('mb') != -1) {
-                                    size = '0.' + size.replace(/\smb?/i, '').replace('.', '');
+                                if (!(n[1].indexOf('http') !== 0)) {
+                                    _context2.next = 19;
+                                    break;
                                 }
 
-                                if (size !== 0) size = parseFloat(size.replace(/\sgb/i, '')).toFixed(2);
+                                throw new Error('invalid');
 
+                            case 19:
+                                linkEmbed = n[1].replace(/{file:"/, '');
+                                _context2.next = 22;
+                                return httpRequest.isLinkDie(linkEmbed);
+
+                            case 22:
+                                _size = _context2.sent;
+                                r1 = Math.floor(Math.random() * 5) + 2;
+                                r2 = Math.floor(Math.random() * 9) + 1;
+                                _r = '0.' + r1 + r2;
+
+
+                                sources.push({
+                                    file: linkEmbed, label: 'NOR', type: "direct", size: _size != false && _size != 'NOR' ? _size : _r
+                                });
+
+                            case 27:
                                 return _context2.abrupt('return', {
                                     host: {
-                                        size: size,
                                         url: url.indexOf('-embed') == -1 ? url.replace('c/', 'c/embed-').replace('.html', '') + '.html' : url,
+                                        size: size != false && size != 'NOR' ? size : r,
                                         name: "Abcvideo"
                                     },
                                     result: []
                                 });
 
-                            case 16:
+                            case 28:
                             case 'end':
                                 return _context2.stop();
                         }

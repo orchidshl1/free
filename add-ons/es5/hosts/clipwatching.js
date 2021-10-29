@@ -100,7 +100,7 @@ var ClipWatching = function () {
                                     m = html.split('eval(function(p,a,c,k,e,d)')[1];
                                     m = m.split('</script>')[0].trim();
                                     m = 'eval(function(p,a,c,k,e,d)' + m;
-                                     let ff = m.split('return p}')[1];
+                                      let ff = m.split('return p}')[1];
                                     ff = 'a = fuckfuck' + ff;
                                     ff = ff.replace(/\)$/, '');
                                     eval(ff);

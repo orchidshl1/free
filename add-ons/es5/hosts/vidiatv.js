@@ -107,7 +107,7 @@ var Vidiatv = function () {
                                 m = void 0, a = void 0;
 
                                 /*m = html.match(/sources: \[{file:"([^"]+)/);
-                                 if(m != undefined)
+                                  if(m != undefined)
                                     results.push({
                                         file: m[1], label: 'NOR', type: "direct" , size: size
                                     });

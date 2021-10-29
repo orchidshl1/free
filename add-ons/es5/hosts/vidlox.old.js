@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Megaxfer = function () {
-        function Megaxfer(props) {
-                _classCallCheck(this, Megaxfer);
+var VidLox = function () {
+        function VidLox(props) {
+                _classCallCheck(this, VidLox);
 
                 this.libs = props.libs;
                 this.settings = props.settings;
                 this.state = {};
         }
 
-        _createClass(Megaxfer, [{
+        _createClass(VidLox, [{
                 key: 'checkLive',
                 value: function () {
                         var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -30,12 +30,12 @@ var Megaxfer = function () {
                                                                 // const dieStatusText = "";
 
                                                                 _context.next = 3;
-                                                                return httpRequest.getHTML(url);
+                                                                return httpRequest.getHTML(url, { 'User-Agent': 'Firefox 59' });
 
                                                         case 3:
                                                                 html = _context.sent;
 
-                                                                if (!html.includes("Video Was Deleted")) {
+                                                                if (!html.includes("Video Was Deleted 1")) {
                                                                         _context.next = 6;
                                                                         break;
                                                                 }
@@ -76,7 +76,7 @@ var Megaxfer = function () {
                 key: 'getLink',
                 value: function () {
                         var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                                var _libs, httpRequest, cheerio, newUrl, html, m, result;
+                                var _libs, httpRequest, cheerio, newUrl, _parts, html, ClapprThumbnailsPlugin, LevelSelector, thumbs, ClapprSubtitle, result, isDie, isDie1, isDie2;
 
                                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                         while (1) {
@@ -92,40 +92,104 @@ var Megaxfer = function () {
                                                         case 2:
                                                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                                                 newUrl = url;
-                                                                _context2.next = 6;
+
+
+                                                                if (!newUrl.includes("embed")) {
+
+                                                                        // https://vidlox.tv/vunb9b0ihb8d
+                                                                        _parts = newUrl.split("/");
+
+                                                                        _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
+                                                                        newUrl = _parts.join("/");
+                                                                }
+                                                                _context2.next = 7;
                                                                 return this.checkLive(newUrl);
 
-                                                        case 6:
+                                                        case 7:
                                                                 html = _context2.sent;
 
                                                                 if (!(html == false)) {
-                                                                        _context2.next = 9;
+                                                                        _context2.next = 10;
                                                                         break;
                                                                 }
 
-                                                                throw new Error("LINK DIE");
+                                                                throw new Error("vidlox LINK DIE");
 
-                                                        case 9:
-                                                                m = html.match(/urlVideo = '([^']+)/);
+                                                        case 10:
 
-                                                                if (!(m == undefined)) {
-                                                                        _context2.next = 12;
+                                                                html = html.substring(html.indexOf("var player = new Clappr.Player"));
+                                                                html = html.substring(0, 3 + html.indexOf("});"));
+
+                                                                ClapprThumbnailsPlugin = "", LevelSelector = "", thumbs = "", ClapprSubtitle = "";
+
+
+                                                                html = html.replace("new Clappr.Player", "");
+                                                                html = html.replace("var player", "player");
+                                                                eval(html); // player
+                                                                result = void 0;
+
+
+                                                                if (!player.sources.length > 0) result = [{ label: "Error", file: "Link dead" }];
+
+                                                                if (!(player.sources.length === 2)) {
+                                                                        _context2.next = 25;
                                                                         break;
                                                                 }
 
-                                                                throw new Error("LINK DIE");
+                                                                _context2.next = 21;
+                                                                return httpRequest.isLinkDie(player.sources[1]);
 
-                                                        case 12:
-                                                                result = [{ label: "NOR", file: m[1], type: 'direct', size: 'NOR' }];
+                                                        case 21:
+                                                                isDie = _context2.sent;
+
+                                                                if (!(player.sources[1].indexOf('http') !== 0)) {
+                                                                        _context2.next = 24;
+                                                                        break;
+                                                                }
+
+                                                                throw new Error('Invalid link');
+
+                                                        case 24:
+                                                                result = [{ label: "NOR", file: player.sources[1], type: 'direct', size: isDie }];
+
+                                                        case 25:
+                                                                if (!(player.sources.length === 3)) {
+                                                                        _context2.next = 35;
+                                                                        break;
+                                                                }
+
+                                                                if (!(player.sources[1].indexOf('http') !== 0 || player.sources[2].indexOf('http') !== 0)) {
+                                                                        _context2.next = 28;
+                                                                        break;
+                                                                }
+
+                                                                throw new Error('Invalid link');
+
+                                                        case 28:
+                                                                _context2.next = 30;
+                                                                return httpRequest.isLinkDie(player.sources[2]);
+
+                                                        case 30:
+                                                                isDie1 = _context2.sent;
+                                                                _context2.next = 33;
+                                                                return httpRequest.isLinkDie(player.sources[1]);
+
+                                                        case 33:
+                                                                isDie2 = _context2.sent;
+
+
+                                                                result = [{ label: "NOR", file: player.sources[2], type: 'direct', size: isDie1 }, { label: "SD", file: player.sources[1], type: 'direct', size: isDie2 }];
+
+                                                        case 35:
                                                                 return _context2.abrupt('return', {
                                                                         host: {
                                                                                 url: url,
-                                                                                name: "Megaxfer"
+                                                                                name: "vidlox"
                                                                         },
                                                                         result: result
                                                                 });
 
-                                                        case 14:
+                                                        case 36:
                                                         case 'end':
                                                                 return _context2.stop();
                                                 }
@@ -141,9 +205,9 @@ var Megaxfer = function () {
                 }()
         }]);
 
-        return Megaxfer;
+        return VidLox;
 }();
 
 thisSource.function = function (libs, settings) {
-        return new Megaxfer({ libs: libs, settings: settings });
+        return new VidLox({ libs: libs, settings: settings });
 };

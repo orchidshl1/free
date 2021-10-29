@@ -70,7 +70,7 @@ var Wolfstream = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, reg, size, r1, r2, r;
+                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, reg, size, test, r1, r2, r;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -98,7 +98,7 @@ var Wolfstream = function () {
 
                             case 10:
                                 if (!(m = reg.exec(html))) {
-                                    _context2.next = 22;
+                                    _context2.next = 33;
                                     break;
                                 }
 
@@ -115,17 +115,43 @@ var Wolfstream = function () {
 
                             case 15:
                                 size = _context2.sent;
+                                test = false;
+                                _context2.prev = 17;
+                                _context2.next = 20;
+                                return httpRequest.get(m[1], {
+                                    headers: {
+                                        "Referer": 'https://wolfstream.tv/'
+                                    }
+                                });
+
+                            case 20:
+                                test = _context2.sent;
+
+                                test = true;
+                                _context2.next = 27;
+                                break;
+
+                            case 24:
+                                _context2.prev = 24;
+                                _context2.t0 = _context2['catch'](17);
+
+                                test = false;
+
+                            case 27:
                                 r1 = Math.floor(Math.random() * 5) + 2;
                                 r2 = Math.floor(Math.random() * 9) + 1;
                                 r = '0.' + r1 + r2;
 
-                                results.push({
-                                    file: m[1], label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r
-                                });
+                                if (test) {
+                                    results.push({
+                                        file: m[1], label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r, referer: 'https://wolfstream.tv/'
+                                    });
+                                }
+
                                 _context2.next = 10;
                                 break;
 
-                            case 22:
+                            case 33:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -134,12 +160,12 @@ var Wolfstream = function () {
                                     result: results
                                 });
 
-                            case 23:
+                            case 34:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee2, this, [[17, 24]]);
             }));
 
             function getLink(_x2) {

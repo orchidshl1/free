@@ -63,7 +63,7 @@ var Streamtape = function () {
                 key: 'getLink',
                 value: function () {
                         var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                                var _libs, httpRequest, cheerio, html, left, start, end, playUrl, isDie, result;
+                                var _libs, httpRequest, cheerio, html, n, reg, isDie, result;
 
                                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                         while (1) {
@@ -92,44 +92,18 @@ var Streamtape = function () {
                                                                 throw new Error("Streamtape LINK DIE");
 
                                                         case 8:
-                                                                left = 'document.getElementById("videolink").innerHTML = "//';
-                                                                start = html.indexOf(left);
+                                                                n = '';
+                                                                reg = /document\.getElementById\(\'videoolink\'\)\.innerHTML = \"(.+?(?=.substring))/mg;
 
-                                                                if (!(start === -1)) {
-                                                                        _context2.next = 12;
-                                                                        break;
-                                                                }
+                                                                n = reg.exec(html);
+                                                                console.log(n);
+                                                                _context2.next = 14;
+                                                                return httpRequest.isLinkDie(u);
 
-                                                                return _context2.abrupt('return', '');
-
-                                                        case 12:
-
-                                                                html = html.slice(start + left.length);
-                                                                end = html.indexOf('";</script>');
-
-                                                                if (!(end === -1)) {
-                                                                        _context2.next = 16;
-                                                                        break;
-                                                                }
-
-                                                                return _context2.abrupt('return', '');
-
-                                                        case 16:
-                                                                playUrl = html.slice(0, end);
-
-
-                                                                playUrl = 'https://' + playUrl;
-
-                                                                // playUrl = playUrl + '&stream=1';
-
-                                                                _context2.next = 20;
-                                                                return httpRequest.isLinkDie(playUrl);
-
-                                                        case 20:
+                                                        case 14:
                                                                 isDie = _context2.sent;
                                                                 result = [];
-
-                                                                result.push({ label: "NOR", file: playUrl, type: 'direct', size: isDie });
+                                                                //result.push({ label: "NOR", file: u, type: 'direct', size: isDie });
 
                                                                 return _context2.abrupt('return', {
                                                                         host: {
@@ -139,7 +113,7 @@ var Streamtape = function () {
                                                                         result: result
                                                                 });
 
-                                                        case 24:
+                                                        case 17:
                                                         case 'end':
                                                                 return _context2.stop();
                                                 }

@@ -6,16 +6,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RapidVideo = function () {
-    function RapidVideo(props) {
-        _classCallCheck(this, RapidVideo);
+var Doodstream = function () {
+    function Doodstream(props) {
+        _classCallCheck(this, Doodstream);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(RapidVideo, [{
+    _createClass(Doodstream, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -72,7 +72,7 @@ var RapidVideo = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, $, links, linksPromise;
+                var _libs, httpRequest, cheerio, arrVideoQuality, results, html, ff, f, sources, arrPromise;
 
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
@@ -86,66 +86,38 @@ var RapidVideo = function () {
                                 throw new Error("LINK DIE");
 
                             case 2:
-
-                                url = url.replace('/e/', '/v/');
-                                url = url.replace(/(www.)?rapidvideo.com/, 'rapidvid.to');
+                                url = url.replace('uptobox', 'Doodstream');
 
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 arrVideoQuality = [];
                                 results = [];
-                                _context3.next = 9;
+                                _context3.next = 8;
                                 return this.checkLive(url);
 
-                            case 9:
+                            case 8:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 12;
+                                    _context3.next = 11;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 12:
-                                $ = cheerio.load(html);
-                                _context3.prev = 13;
+                            case 11:
+                                ff = url.split('/');
 
+                                ff = ff[ff.length - 1];
+                                _context3.next = 15;
+                                return httpRequest.getHTML('https://Doodstream.com/api/streaming/source/get?token=null&file_code=' + ff);
 
-                                /*
-                                let quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
-                                    quality.each(function() {
-                                      let linkQuality = $(this).attr('href');
-                                      if(linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
-                                        arrVideoQuality.push(linkQuality);
-                                    }
-                                    
-                                });
-                                  let arrPromise = arrVideoQuality.map(async function(val) {
-                                      let label       = val.match(/\&q\=(.+)/i);
-                                    label           = label != null ? label[1] : 'NOR';
-                                    let htmlDirect  = await httpRequest.getHTML(val); 
-                                    let $           = cheerio.load(htmlDirect);
-                                    let linkDirect  = $('#videojs source').attr('src');
-                                    let isDie       = await httpRequest.isLinkDie(linkDirect);
-                                          if( isDie != false ) {
-                                          results.push({
-                                            file: linkDirect, label: label, type: "direct" , size: isDie
-                                        });
-                                     }
-                                });
-                                    await Promise.all(arrPromise);
-                                */
+                            case 15:
+                                f = _context3.sent;
 
-                                links = [];
-
-
-                                $('source').each(function () {
-                                    var label = $(this).attr('label');
-                                    var linkDirect = $(this).attr('src');
-                                    links.push({ label: label, link: linkDirect });
-                                });
-
-                                linksPromise = links.map(function () {
+                                f = JSON.parse(f);
+                                f = f.data.sources;
+                                sources = fk(f);
+                                arrPromise = sources.map(function () {
                                     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
                                         var isDie;
                                         return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -153,20 +125,19 @@ var RapidVideo = function () {
                                                 switch (_context2.prev = _context2.next) {
                                                     case 0:
                                                         _context2.next = 2;
-                                                        return httpRequest.isLinkDie(val.link);
+                                                        return httpRequest.isLinkDie(val.src);
 
                                                     case 2:
                                                         isDie = _context2.sent;
 
-                                                        console.log(isDie, 'f');
 
                                                         if (isDie != false) {
                                                             results.push({
-                                                                file: val.link, label: val.label, type: "direct", size: isDie
+                                                                file: val.src, label: 'NOR', type: "direct", size: isDie
                                                             });
                                                         }
 
-                                                    case 5:
+                                                    case 4:
                                                     case 'end':
                                                         return _context2.stop();
                                                 }
@@ -178,29 +149,24 @@ var RapidVideo = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 19;
-                                return Promise.all(linksPromise);
+                                _context3.next = 22;
+                                return Promise.all(arrPromise);
 
-                            case 19:
+                            case 22:
                                 return _context3.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "rapidvideo"
+                                        name: "Doodstream"
                                     },
                                     result: results
                                 });
 
-                            case 22:
-                                _context3.prev = 22;
-                                _context3.t0 = _context3['catch'](13);
-                                throw new Error(_context3.t0);
-
-                            case 25:
+                            case 23:
                             case 'end':
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[13, 22]]);
+                }, _callee3, this);
             }));
 
             function getLink(_x2) {
@@ -211,9 +177,14 @@ var RapidVideo = function () {
         }()
     }]);
 
-    return RapidVideo;
+    return Doodstream;
 }();
 
+function fk(f) {
+    eval(f);
+    return sources;
+}
+
 thisSource.function = function (libs, settings) {
-    return new RapidVideo({ libs: libs, settings: settings });
+    return new Doodstream({ libs: libs, settings: settings });
 };

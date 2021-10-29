@@ -12,41 +12,33 @@ function fuckfuck(p, a, c, k, e, d) {
     }return p;
 }
 
-var Highstream = function () {
-    function Highstream(props) {
-        _classCallCheck(this, Highstream);
+var Vidiatv = function () {
+    function Vidiatv(props) {
+        _classCallCheck(this, Vidiatv);
 
         this.libs = props.libs;
         this.settings = props.settings;
         this.state = {};
     }
 
-    _createClass(Highstream, [{
+    _createClass(Vidiatv, [{
         key: 'checkLive',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var httpRequest, agents, agent, html;
+                var httpRequest, html;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 httpRequest = this.libs.httpRequest;
                                 _context.next = 3;
-                                return httpRequest.getHTML('https://gist.githubusercontent.com/pzb/b4b6f57144aea7827ae4/raw/cf847b76a142955b1410c8bcef3aabe221a63db1/user-agents.txt');
+                                return httpRequest.getHTML(url);
 
                             case 3:
-                                agents = _context.sent;
-
-                                agents = agents.split("\n");
-                                agent = agents[Math.floor(Math.random() * agents.length)];
-                                _context.next = 8;
-                                return httpRequest.getHTML(url, { 'User-Agent': agent });
-
-                            case 8:
                                 html = _context.sent;
                                 return _context.abrupt('return', html);
 
-                            case 10:
+                            case 5:
                             case 'end':
                                 return _context.stop();
                         }
@@ -70,7 +62,7 @@ var Highstream = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, arrVideoQuality, html, results, m, reg, size, r1, r2, r;
+                var _libs, httpRequest, cheerio, arrVideoQuality, html, $, results, size, m, a, ff, reg;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -92,78 +84,100 @@ var Highstream = function () {
                                 throw new Error("LINK DIE");
 
                             case 7:
+                                $ = cheerio.load(html);
                                 results = [];
+                                size = 'NOR';
 
-                                /*
-                                try {
-                                    let m, a;
-                                    m = html.split('eval(function(p,a,c,k,e,d)')[1];
-                                    m = m.split('</script>')[0].trim();
-                                    m = 'eval(function(p,a,c,k,e,d)' + m;
-                                      let ff = m.split('return p}')[1];
-                                    ff = 'a = fuckfuck' + ff;
-                                    ff = ff.replace(/\)$/, '');
-                                    eval(ff);
-                                    let reg = /file"?:\s?"([^"]+)/g;
-                                    while(m = reg.exec(a)) {
-                                        if(m[1].indexOf('jpg') != -1 || m[1].indexOf('png') != -1) continue;
-                                        results.push({
-                                            file: m[1], label: 'NOR', type: "direct" , size: 'NOR'
-                                        });
+
+                                $('#download-tab .table tr').each(function () {
+                                    var t = $(this).text();
+                                    if (t.toLowerCase().indexOf('normal quality') != -1) {
+                                        var m = t.match(/\d+(\.\d+)?\s(GB?|MB?)/i);
+                                        size = m != null ? m[0] : 0;
+
+                                        if (size.toLowerCase().indexOf('mb') != -1) {
+                                            size = '0.' + size.replace(/\smb?/i, '').replace('.', '');
+                                        }
+
+                                        if (size !== 0) size = parseFloat(size.replace(/\sgb/i, '')).toFixed(2);
                                     }
-                                
-                                } catch(error) {
-                                    throw new Error(error);
-                                }
-                                */
-
-                                m = '';
-                                reg = /{file:"([^"]+)/mg;
-
-                            case 10:
-                                if (!(m = reg.exec(html))) {
-                                    _context2.next = 22;
-                                    break;
-                                }
-
-                                if (!(m[1].indexOf('http') !== 0)) {
-                                    _context2.next = 13;
-                                    break;
-                                }
-
-                                throw new Error('invalid');
-
-                            case 13:
-                                _context2.next = 15;
-                                return httpRequest.isLinkDie(m[1]);
-
-                            case 15:
-                                size = _context2.sent;
-                                r1 = Math.floor(Math.random() * 5) + 2;
-                                r2 = Math.floor(Math.random() * 9) + 1;
-                                r = '0.' + r1 + r2;
-
-                                results.push({
-                                    file: m[1], label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r
                                 });
-                                _context2.next = 10;
+
+                                _context2.prev = 11;
+                                m = void 0, a = void 0;
+
+                                m = html.split('eval(function(p,a,c,k,e,d)')[1];
+                                m = m.split('</script>')[0].trim();
+                                m = 'eval(function(p,a,c,k,e,d)' + m;
+
+                                ff = m.split('return p}')[1];
+
+                                ff = 'a = fuckfuck' + ff;
+                                ff = ff.replace(/\)$/, '');
+                                eval(ff);
+                                reg = /file"?:\s?"([^"]+)/g;
+
+                            case 21:
+                                if (!(m = reg.exec(a))) {
+                                    _context2.next = 32;
+                                    break;
+                                }
+
+                                if (!(m[1].indexOf('jpg') != -1 || m[1].indexOf('png') != -1)) {
+                                    _context2.next = 24;
+                                    break;
+                                }
+
+                                return _context2.abrupt('continue', 21);
+
+                            case 24:
+                                if (!(m[1].indexOf('http') !== 0 || m[1].indexOf('.vtt') != -1)) {
+                                    _context2.next = 26;
+                                    break;
+                                }
+
+                                return _context2.abrupt('continue', 21);
+
+                            case 26:
+                                if (!(m[1].toLowerCase().indexOf('.srt') != -1)) {
+                                    _context2.next = 28;
+                                    break;
+                                }
+
+                                return _context2.abrupt('continue', 21);
+
+                            case 28:
+                                console.log(m[1]);
+                                results.push({
+                                    file: m[1], label: 'NOR', type: "direct", size: size
+                                });
+                                _context2.next = 21;
                                 break;
 
-                            case 22:
+                            case 32:
+                                _context2.next = 37;
+                                break;
+
+                            case 34:
+                                _context2.prev = 34;
+                                _context2.t0 = _context2['catch'](11);
+                                throw new Error(_context2.t0);
+
+                            case 37:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
-                                        name: "Highstream"
+                                        name: "VidiaTV"
                                     },
                                     result: results
                                 });
 
-                            case 23:
+                            case 38:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee2, this, [[11, 34]]);
             }));
 
             function getLink(_x2) {
@@ -174,9 +188,9 @@ var Highstream = function () {
         }()
     }]);
 
-    return Highstream;
+    return Vidiatv;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Highstream({ libs: libs, settings: settings });
+    return new Vidiatv({ libs: libs, settings: settings });
 };

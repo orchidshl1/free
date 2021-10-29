@@ -7,142 +7,142 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Vcdn = function () {
-    function Vcdn(props) {
-        _classCallCheck(this, Vcdn);
+        function Vcdn(props) {
+                _classCallCheck(this, Vcdn);
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
-    }
+                this.libs = props.libs;
+                this.settings = props.settings;
+                this.state = {};
+        }
 
-    _createClass(Vcdn, [{
-        key: 'checkLive',
-        value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var httpRequest, html;
-                return regeneratorRuntime.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                httpRequest = this.libs.httpRequest;
-                                _context.next = 3;
-                                return httpRequest.post(url);
+        _createClass(Vcdn, [{
+                key: 'checkLive',
+                value: function () {
+                        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                                var httpRequest, html;
+                                return regeneratorRuntime.wrap(function _callee$(_context) {
+                                        while (1) {
+                                                switch (_context.prev = _context.next) {
+                                                        case 0:
+                                                                httpRequest = this.libs.httpRequest;
+                                                                _context.next = 3;
+                                                                return httpRequest.post(url);
 
-                            case 3:
-                                html = _context.sent;
-                                return _context.abrupt('return', html);
+                                                        case 3:
+                                                                html = _context.sent;
+                                                                return _context.abrupt('return', html);
 
-                            case 5:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            }));
-
-            function checkLive(_x) {
-                return _ref.apply(this, arguments);
-            }
-
-            return checkLive;
-        }()
-    }, {
-        key: 'getLink',
-        value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, arrPromise;
-
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
-                    while (1) {
-                        switch (_context3.prev = _context3.next) {
-                            case 0:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                sources = [];
-                                s = url.split('/');
-                                id = s[s.length - 1];
-                                u = 'https://vcdn.io/api/source/' + id;
-                                _context3.next = 7;
-                                return this.checkLive(u);
-
-                            case 7:
-                                html = _context3.sent;
-
-                                if (!(html == false)) {
-                                    _context3.next = 11;
-                                    break;
-                                }
-
-                                console.log('Vcdn no link');
-                                throw new Error("Vcdn LINK DIE");
-
-                            case 11:
-                                data = html.data.data;
-                                results = [];
-                                arrPromise = data.map(function () {
-                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                        var label, isDie;
-                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                            while (1) {
-                                                switch (_context2.prev = _context2.next) {
-                                                    case 0:
-                                                        label = val.label;
-                                                        _context2.next = 3;
-                                                        return httpRequest.isLinkDie(val.file);
-
-                                                    case 3:
-                                                        isDie = _context2.sent;
-
-
-                                                        if (isDie != false) {
-
-                                                            results.push({
-                                                                file: val.file, label: label, type: "direct", size: isDie
-                                                            });
-                                                        }
-
-                                                    case 5:
-                                                    case 'end':
-                                                        return _context2.stop();
+                                                        case 5:
+                                                        case 'end':
+                                                                return _context.stop();
                                                 }
-                                            }
-                                        }, _callee2, this);
-                                    }));
+                                        }
+                                }, _callee, this);
+                        }));
 
-                                    return function (_x3) {
-                                        return _ref3.apply(this, arguments);
-                                    };
-                                }());
-                                _context3.next = 16;
-                                return Promise.all(arrPromise);
-
-                            case 16:
-                                return _context3.abrupt('return', {
-                                    host: {
-                                        url: url,
-                                        name: "Vcdn"
-                                    },
-                                    result: results
-                                });
-
-                            case 17:
-                            case 'end':
-                                return _context3.stop();
+                        function checkLive(_x) {
+                                return _ref.apply(this, arguments);
                         }
-                    }
-                }, _callee3, this);
-            }));
 
-            function getLink(_x2) {
-                return _ref2.apply(this, arguments);
-            }
+                        return checkLive;
+                }()
+        }, {
+                key: 'getLink',
+                value: function () {
+                        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                                var _libs, httpRequest, cheerio, sources, s, id, u, html, data, results, arrPromise;
 
-            return getLink;
-        }()
-    }]);
+                                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                                        while (1) {
+                                                switch (_context3.prev = _context3.next) {
+                                                        case 0:
+                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                                                sources = [];
+                                                                s = url.split('/');
+                                                                id = s[s.length - 1];
+                                                                u = 'https://vcdn.io/api/source/' + id;
+                                                                _context3.next = 7;
+                                                                return this.checkLive(u);
 
-    return Vcdn;
+                                                        case 7:
+                                                                html = _context3.sent;
+
+                                                                if (!(html == false)) {
+                                                                        _context3.next = 11;
+                                                                        break;
+                                                                }
+
+                                                                console.log('Vcdn no link');
+                                                                throw new Error("Vcdn LINK DIE");
+
+                                                        case 11:
+                                                                data = html.data.data;
+                                                                results = [];
+                                                                arrPromise = data.map(function () {
+                                                                        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                                                                var label, isDie;
+                                                                                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                                                                        while (1) {
+                                                                                                switch (_context2.prev = _context2.next) {
+                                                                                                        case 0:
+                                                                                                                label = val.label;
+                                                                                                                _context2.next = 3;
+                                                                                                                return httpRequest.isLinkDie(val.file);
+
+                                                                                                        case 3:
+                                                                                                                isDie = _context2.sent;
+
+
+                                                                                                                if (isDie != false) {
+
+                                                                                                                        results.push({
+                                                                                                                                file: val.file, label: label, type: "direct", size: isDie
+                                                                                                                        });
+                                                                                                                }
+
+                                                                                                        case 5:
+                                                                                                        case 'end':
+                                                                                                                return _context2.stop();
+                                                                                                }
+                                                                                        }
+                                                                                }, _callee2, this);
+                                                                        }));
+
+                                                                        return function (_x3) {
+                                                                                return _ref3.apply(this, arguments);
+                                                                        };
+                                                                }());
+                                                                _context3.next = 16;
+                                                                return Promise.all(arrPromise);
+
+                                                        case 16:
+                                                                return _context3.abrupt('return', {
+                                                                        host: {
+                                                                                url: url,
+                                                                                name: "Vcdn"
+                                                                        },
+                                                                        result: results
+                                                                });
+
+                                                        case 17:
+                                                        case 'end':
+                                                                return _context3.stop();
+                                                }
+                                        }
+                                }, _callee3, this);
+                        }));
+
+                        function getLink(_x2) {
+                                return _ref2.apply(this, arguments);
+                        }
+
+                        return getLink;
+                }()
+        }]);
+
+        return Vcdn;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Vcdn({ libs: libs, settings: settings });
+        return new Vcdn({ libs: libs, settings: settings });
 };

@@ -12,8 +12,8 @@ var reversegetFChars = new Array();
 for (var i = 0; i < arrChrs.length; i++) {
     reversegetFChars[arrChrs[i]] = i;
 }
-var getFStr = void 0;
-var getFCount = void 0;
+var getFStr;
+var getFCount;
 
 function ntos(e) {
     e = e.toString(16);
@@ -88,7 +88,7 @@ function tor(txt) {
 }
 
 var decrypt = function decrypt(e) {
-    var code = unescape(getF(tor(getF(e))));
+    var code = unescape(tor(getF(tor(e))));
     return code;
 };
 
@@ -126,25 +126,29 @@ var Afdah = function () {
 
                                     url = u.url;
                                     headers = {
-                                        'cookie': u.cookie,
-                                        'user-agent': u['User-Agent'],
+                                        'Cookie': u.cookie,
+                                        'User-Agent': u['User-Agent'],
                                         'referer': url,
-                                        'content-type': 'application/x-www-form-urlencoded'
-                                        //'origin': 'https://afdah.info',
-                                        //'sec-fetch-site': 'same-origin',
-                                        //'sec-fetch-mode': 'navigate',
+                                        'content-type': 'application/x-www-form-urlencoded',
+                                        'origin': 'https://afdah.info',
+                                        'sec-fetch-site': 'same-origin',
+                                        'sec-fetch-mode': 'navigate',
+                                        'cache-control': 'no-cache',
+                                        'sec-fetch-user': '?1',
+                                        'upgrade-insecure-requests': 1
                                     };
                                 } catch (e) {}
 
-                                console.log(headers);
+                                console.log('afdah checkLive', headers, url);
 
                                 _context.next = 6;
-                                return httpRequest.post(url, headers, { 'play': 'continue', 'x': 0, 'y': 0 });
+                                return httpRequest.post(url, headers, { 'play': 'continue', 'x': 69, 'y': 96 });
 
                             case 6:
                                 html = _context.sent;
 
-                                console.log(html, 'ff');
+
+                                console.log('afdah checkLive done', html);
 
                                 /*
                                 let html = await httpRequest.getHTML(url, {
@@ -152,9 +156,10 @@ var Afdah = function () {
                                 });
                                 */
                                 // if(html.includes(dieStatusText)) return true;
+                                console.log('afdah post data', html.data);
                                 return _context.abrupt("return", html.data);
 
-                            case 9:
+                            case 10:
                             case "end":
                                 return _context.stop();
                         }
@@ -201,10 +206,8 @@ var Afdah = function () {
                                     }
                                 }
 
-                                console.log(u);
-
                                 if (!(allowCache && false)) {
-                                    _context3.next = 23;
+                                    _context3.next = 22;
                                     break;
                                 }
 
@@ -219,17 +222,17 @@ var Afdah = function () {
                                     hash: cryptoJs.MD5(u.toLowerCase() + "0aloha0").toString()
                                 };
 
-                                _context3.next = 13;
+                                _context3.next = 12;
                                 return httpRequest.post('https://getaz.morphtv.club/source/get', {}, bodyPost);
 
-                            case 13:
+                            case 12:
                                 res = _context3.sent;
-                                _context3.prev = 14;
+                                _context3.prev = 13;
 
                                 res = res['data'];
 
                                 if (!(res['status'] && false)) {
-                                    _context3.next = 18;
+                                    _context3.next = 17;
                                     break;
                                 }
 
@@ -241,40 +244,42 @@ var Afdah = function () {
                                     result: JSON.parse(res['hosts'])
                                 });
 
-                            case 18:
-                                _context3.next = 23;
+                            case 17:
+                                _context3.next = 22;
                                 break;
 
-                            case 20:
-                                _context3.prev = 20;
-                                _context3.t0 = _context3["catch"](14);
+                            case 19:
+                                _context3.prev = 19;
+                                _context3.t0 = _context3["catch"](13);
 
                                 console.log('err', _context3.t0);
 
-                            case 23:
-                                _context3.next = 25;
+                            case 22:
+                                _context3.next = 24;
                                 return this.checkLive(url);
 
-                            case 25:
+                            case 24:
                                 html = _context3.sent;
 
                                 if (!(html == false)) {
-                                    _context3.next = 28;
+                                    _context3.next = 27;
                                     break;
                                 }
 
                                 throw new Error("LINK DIE");
 
-                            case 28:
+                            case 27:
                                 decryp = html.match(/salt\(\"([^\"]+)/i);
 
+                                console.log('afdah decryp', decryp);
 
                                 decryp = decrypt(decryp[1]);
+                                console.log('afdah decryp log', decryp);
                                 decryp = decryp.match(/sources *: *\[([^\]]+)/i);
                                 decryp = decryp != null ? decryp[1] : '';
 
                                 if (!(decryp != '')) {
-                                    _context3.next = 45;
+                                    _context3.next = 46;
                                     break;
                                 }
 
@@ -317,25 +322,25 @@ var Afdah = function () {
                                         return _ref3.apply(this, arguments);
                                     };
                                 }());
-                                _context3.next = 37;
+                                _context3.next = 38;
                                 return Promise.all(arrPromise);
 
-                            case 37:
-                                if (!(sources.length > 0 && allowCache && true)) {
-                                    _context3.next = 44;
+                            case 38:
+                                if (!(sources.length > 0 && allowCache && false)) {
+                                    _context3.next = 45;
                                     break;
                                 }
 
                                 bodyPost['hosts'] = JSON.stringify(sources);
                                 bodyPost['expired'] = 300;
                                 console.log(bodyPost, 'bPost');
-                                _context3.next = 43;
+                                _context3.next = 44;
                                 return httpRequest.post('https://getaz.morphtv.club/source/set', {}, bodyPost);
 
-                            case 43:
+                            case 44:
                                 xxx = _context3.sent;
 
-                            case 44:
+                            case 45:
                                 return _context3.abrupt("return", {
                                     host: {
                                         url: url,
@@ -344,12 +349,12 @@ var Afdah = function () {
                                     result: sources
                                 });
 
-                            case 45:
+                            case 46:
                             case "end":
                                 return _context3.stop();
                         }
                     }
-                }, _callee3, this, [[14, 20]]);
+                }, _callee3, this, [[13, 19]]);
             }));
 
             function getLink(_x2) {

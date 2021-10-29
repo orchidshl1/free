@@ -6,16 +6,31 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Megaxfer = function () {
-        function Megaxfer(props) {
-                _classCallCheck(this, Megaxfer);
+// https://upstream.to/
+var Upstreamto = function () {
+        function Upstreamto(props) {
+                _classCallCheck(this, Upstreamto);
 
                 this.libs = props.libs;
                 this.settings = props.settings;
                 this.state = {};
         }
 
-        _createClass(Megaxfer, [{
+        _createClass(Upstreamto, [{
+                key: 'getQuality',
+                value: function getQuality(url) {
+                        var qualities = ['DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu ray', 'Bluray', 'Blu-ray', 'BDRip', 'WEB', 'HDTS', 'TS', 'CAM'];
+
+                        for (var i in qualities) {
+                                var quality = qualities[i];
+                                if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
+                                        return quality;
+                                }
+                        }
+
+                        return false;
+                }
+        }, {
                 key: 'checkLive',
                 value: function () {
                         var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
@@ -34,18 +49,9 @@ var Megaxfer = function () {
 
                                                         case 3:
                                                                 html = _context.sent;
-
-                                                                if (!html.includes("Video Was Deleted")) {
-                                                                        _context.next = 6;
-                                                                        break;
-                                                                }
-
-                                                                return _context.abrupt('return', false);
-
-                                                        case 6:
                                                                 return _context.abrupt('return', html);
 
-                                                        case 7:
+                                                        case 5:
                                                         case 'end':
                                                                 return _context.stop();
                                                 }
@@ -76,24 +82,25 @@ var Megaxfer = function () {
                 key: 'getLink',
                 value: function () {
                         var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                                var _libs, httpRequest, cheerio, newUrl, html, m, result;
+                                var _libs, httpRequest, cheerio, sources, html, m, isDie, s;
 
                                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                                         while (1) {
                                                 switch (_context2.prev = _context2.next) {
                                                         case 0:
+                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+
                                                                 if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
-                                                                        _context2.next = 2;
+                                                                        _context2.next = 3;
                                                                         break;
                                                                 }
 
                                                                 throw new Error("LINK DIE");
 
-                                                        case 2:
-                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                                                newUrl = url;
+                                                        case 3:
+                                                                sources = [];
                                                                 _context2.next = 6;
-                                                                return this.checkLive(newUrl);
+                                                                return this.checkLive(url);
 
                                                         case 6:
                                                                 html = _context2.sent;
@@ -106,26 +113,65 @@ var Megaxfer = function () {
                                                                 throw new Error("LINK DIE");
 
                                                         case 9:
-                                                                m = html.match(/urlVideo = '([^']+)/);
 
-                                                                if (!(m == undefined)) {
-                                                                        _context2.next = 12;
+                                                                /*
+                                                                let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                                                html            = html.substring(startIndex);
+                                                                html            = html.substring(0, html.indexOf(".setVolume("));
+                                                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
+                                                                html            += ";";
+                                                                  var player;
+                                                                eval(html);
+                                                                let data = player.sources;
+                                                                  let arrPromise = data.map( async val => {
+                                                                    
+                                                                    let isDie = await httpRequest.isLinkDie(val.file);
+                                                                      if( isDie != false ) {
+                                                                          sources.push({
+                                                                            label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
+                                                                            file: val.file,
+                                                                            type: "embed",
+                                                                            size: isDie
+                                                                        });
+                                                                    }
+                                                                
+                                                                  });
+                                                                  await Promise.all(arrPromise);
+                                                                */
+
+                                                                m = html.match(/file:"([^"]+)/);
+
+                                                                console.log(m);
+
+                                                                if (!(m != undefined)) {
+                                                                        _context2.next = 17;
                                                                         break;
                                                                 }
 
-                                                                throw new Error("LINK DIE");
+                                                                _context2.next = 14;
+                                                                return httpRequest.isLinkDie(m[1]);
 
-                                                        case 12:
-                                                                result = [{ label: "NOR", file: m[1], type: 'direct', size: 'NOR' }];
+                                                        case 14:
+                                                                isDie = _context2.sent;
+                                                                s = {
+                                                                        label: "NOR",
+                                                                        file: m[1],
+                                                                        type: "direct",
+                                                                        size: isDie ? isDie : "NOR"
+                                                                };
+
+                                                                sources.push(s);
+
+                                                        case 17:
                                                                 return _context2.abrupt('return', {
                                                                         host: {
                                                                                 url: url,
-                                                                                name: "Megaxfer"
+                                                                                name: "Upstreamto"
                                                                         },
-                                                                        result: result
+                                                                        result: []
                                                                 });
 
-                                                        case 14:
+                                                        case 18:
                                                         case 'end':
                                                                 return _context2.stop();
                                                 }
@@ -141,9 +187,9 @@ var Megaxfer = function () {
                 }()
         }]);
 
-        return Megaxfer;
+        return Upstreamto;
 }();
 
 thisSource.function = function (libs, settings) {
-        return new Megaxfer({ libs: libs, settings: settings });
+        return new Upstreamto({ libs: libs, settings: settings });
 };

@@ -92,7 +92,7 @@ var Upstream = function () {
         key: 'getLink',
         value: function () {
             var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, sources, html, m, arr_param, stringScript, n, reg, linkEmbed, size, r1, r2, r;
+                var _libs, httpRequest, cheerio, sources, html, m, arr_param, stringScript, n, reg, linkEmbed, html1, linkDir, size, r1, r2, r;
 
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
@@ -130,14 +130,14 @@ var Upstream = function () {
                                 html            = html.substring(0, html.indexOf(".setVolume("));
                                 html            = html.replace('jwplayer("vplayer").setup', "player = ");
                                 html            += ";";
-                                 var player;
+                                  var player;
                                 eval(html);
                                 let data = player.sources;
-                                 let arrPromise = data.map( async val => {
+                                  let arrPromise = data.map( async val => {
                                     
                                     let isDie = await httpRequest.isLinkDie(val.file);
-                                     if( isDie != false ) {
-                                         sources.push({
+                                      if( isDie != false ) {
+                                          sources.push({
                                             label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
                                             file: val.file,
                                             type: "embed",
@@ -145,13 +145,13 @@ var Upstream = function () {
                                         });
                                     }
                                 
-                                 });
-                                 await Promise.all(arrPromise);
+                                  });
+                                  await Promise.all(arrPromise);
                                 */
                                 m = html.match(/eval(.+?(?=split))/);
 
                                 if (!(m != undefined)) {
-                                    _context2.next = 26;
+                                    _context2.next = 30;
                                     break;
                                 }
 
@@ -172,20 +172,32 @@ var Upstream = function () {
                             case 18:
                                 linkEmbed = n[1].replace(/{file:"/, '');
                                 _context2.next = 21;
-                                return httpRequest.isLinkDie(linkEmbed);
+                                return httpRequest.getHTML(linkEmbed, {
+                                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+                                    'cache-control': 'max-age=0',
+                                    'upgrade-insecure-requests': 1,
+                                    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36',
+                                    'referer': 'https://upstream.to/'
+                                });
 
                             case 21:
+                                html1 = _context2.sent;
+                                linkDir = html1.match(/(http.+\.m3u8)/);
+                                _context2.next = 25;
+                                return httpRequest.isLinkDie(linkDir);
+
+                            case 25:
                                 size = _context2.sent;
                                 r1 = Math.floor(Math.random() * 5) + 2;
                                 r2 = Math.floor(Math.random() * 9) + 1;
                                 r = '0.' + r1 + r2;
 
-
                                 sources.push({
-                                    file: linkEmbed, label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r, referer: 'https://upstream.to/'
+                                    file: linkDir[1], label: 'NOR', type: "direct", size: size != false && size != 'NOR' ? size : r, referer: 'https://upstream.to/'
                                 });
 
-                            case 26:
+                            case 30:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -194,7 +206,7 @@ var Upstream = function () {
                                     result: sources
                                 });
 
-                            case 27:
+                            case 31:
                             case 'end':
                                 return _context2.stop();
                         }

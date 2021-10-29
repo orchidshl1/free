@@ -146,13 +146,13 @@ var Vidtodo = function () {
                                 /*
                                 let $ = cheerio.load(html);
                                 let script = $('#content:last').next().text();
-                                 //console.log(script); process.exit();
-                                 let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                  //console.log(script); process.exit();
+                                  let startIndex  = html.indexOf('jwplayer("vplayer").setup');
                                 html            = html.substring(startIndex);
                                 html            = html.substring(0, html.indexOf(".setVolume("));
                                 html            = html.replace('jwplayer("vplayer").setup', "player = ");
                                 html            += ";";
-                                 var player;
+                                  var player;
                                 eval(html);
                                 */
 
