@@ -7,217 +7,217 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Videobin = function () {
-    function Videobin(props) {
-        _classCallCheck(this, Videobin);
+        function Videobin(props) {
+                _classCallCheck(this, Videobin);
 
-        this.libs = props.libs;
-        this.settings = props.settings;
-        this.state = {};
-        this.agent = '';
-    }
-
-    _createClass(Videobin, [{
-        key: 'checkLive',
-        value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var httpRequest, agents, agent, html;
-                return regeneratorRuntime.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                httpRequest = this.libs.httpRequest;
-
-                                // you fill the die status text
-                                // const dieStatusText = "";
-
-                                _context.next = 3;
-                                return httpRequest.getHTML('https://gist.githubusercontent.com/pzb/b4b6f57144aea7827ae4/raw/cf847b76a142955b1410c8bcef3aabe221a63db1/user-agents.txt');
-
-                            case 3:
-                                agents = _context.sent;
-
-                                agents = agents.split("\n");
-                                agent = agents[Math.floor(Math.random() * agents.length)];
-
-                                this.agent = agent;
-                                _context.next = 9;
-                                return httpRequest.getHTML(url, { 'User-Agent': agent });
-
-                            case 9:
-                                html = _context.sent;
-
-                                if (!html.includes("Video Was Deleted 1")) {
-                                    _context.next = 12;
-                                    break;
-                                }
-
-                                return _context.abrupt('return', false);
-
-                            case 12:
-                                return _context.abrupt('return', html);
-
-                            case 13:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            }));
-
-            function checkLive(_x) {
-                return _ref.apply(this, arguments);
-            }
-
-            return checkLive;
-        }()
-    }, {
-        key: 'convertToEmbed',
-        value: function convertToEmbed(url) {
-
-            // convert link detail to link embed
-            // if input is embed then return input
-
-            // let id = url.match(/\/embed\-([^\-]+)/i);
-            // id = url != null ? url[1] : false;
-
-            // if( id == false ) return url;
-
+                this.libs = props.libs;
+                this.settings = props.settings;
+                this.state = {};
+                this.agent = '';
         }
-    }, {
-        key: 'getLink',
-        value: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                var _libs, httpRequest, cheerio, newUrl, _parts, html, ClapprThumbnailsPlugin, LevelSelector, thumbs, ClapprSubtitle, player, result, isDie, isDie1, isDie2;
 
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
-                                    _context2.next = 2;
-                                    break;
-                                }
+        _createClass(Videobin, [{
+                key: 'checkLive',
+                value: function () {
+                        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                                var httpRequest, agents, agent, html;
+                                return regeneratorRuntime.wrap(function _callee$(_context) {
+                                        while (1) {
+                                                switch (_context.prev = _context.next) {
+                                                        case 0:
+                                                                httpRequest = this.libs.httpRequest;
 
-                                throw new Error("LINK DIE");
+                                                                // you fill the die status text
+                                                                // const dieStatusText = "";
 
-                            case 2:
-                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                newUrl = url;
+                                                                _context.next = 3;
+                                                                return httpRequest.getHTML('https://gist.githubusercontent.com/pzb/b4b6f57144aea7827ae4/raw/cf847b76a142955b1410c8bcef3aabe221a63db1/user-agents.txt');
 
+                                                        case 3:
+                                                                agents = _context.sent;
 
-                                if (!newUrl.includes("embed")) {
-                                    _parts = newUrl.split("/");
+                                                                agents = agents.split("\n");
+                                                                agent = agents[Math.floor(Math.random() * agents.length)];
 
-                                    _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
-                                    newUrl = _parts.join("/");
-                                }
-                                _context2.next = 7;
-                                return this.checkLive(newUrl);
+                                                                this.agent = agent;
+                                                                _context.next = 9;
+                                                                return httpRequest.getHTML(url, { 'User-Agent': agent });
 
-                            case 7:
-                                html = _context2.sent;
+                                                        case 9:
+                                                                html = _context.sent;
 
-                                if (!(html == false)) {
-                                    _context2.next = 10;
-                                    break;
-                                }
+                                                                if (!html.includes("Video Was Deleted 1")) {
+                                                                        _context.next = 12;
+                                                                        break;
+                                                                }
 
-                                throw new Error("vidlox LINK DIE");
+                                                                return _context.abrupt('return', false);
 
-                            case 10:
+                                                        case 12:
+                                                                return _context.abrupt('return', html);
 
-                                html = html.substring(html.indexOf("var player = new Clappr.Player"));
-                                html = html.substring(0, 3 + html.indexOf("});"));
+                                                        case 13:
+                                                        case 'end':
+                                                                return _context.stop();
+                                                }
+                                        }
+                                }, _callee, this);
+                        }));
 
-                                ClapprThumbnailsPlugin = "", LevelSelector = "", thumbs = "", ClapprSubtitle = "";
-
-
-                                html = html.replace("new Clappr.Player", "");
-                                html = html.replace("var player", "player");
-
-                                eval(html); // player
-                                result = void 0;
-
-
-                                if (!player.sources.length > 0) result = [{ label: "Error", file: "Link dead" }];
-
-                                if (!(player.sources.length === 2)) {
-                                    _context2.next = 25;
-                                    break;
-                                }
-
-                                _context2.next = 21;
-                                return httpRequest.isLinkDie(player.sources[1]);
-
-                            case 21:
-                                isDie = _context2.sent;
-
-                                if (!(player.sources[1].indexOf('http') !== 0)) {
-                                    _context2.next = 24;
-                                    break;
-                                }
-
-                                throw new Error('Invalid link');
-
-                            case 24:
-                                result = [{ label: "NOR", file: player.sources[1], type: 'direct', size: isDie }];
-
-                            case 25:
-                                if (!(player.sources.length === 3)) {
-                                    _context2.next = 35;
-                                    break;
-                                }
-
-                                if (!(player.sources[1].indexOf('http') !== 0 || player.sources[2].indexOf('http') !== 0)) {
-                                    _context2.next = 28;
-                                    break;
-                                }
-
-                                throw new Error('Invalid link');
-
-                            case 28:
-                                _context2.next = 30;
-                                return httpRequest.isLinkDie(player.sources[2]);
-
-                            case 30:
-                                isDie1 = _context2.sent;
-                                _context2.next = 33;
-                                return httpRequest.isLinkDie(player.sources[1]);
-
-                            case 33:
-                                isDie2 = _context2.sent;
-
-
-                                result = [{ label: "NOR", file: player.sources[2], type: 'direct', size: isDie1 }, { label: "SD", file: player.sources[1], type: 'direct', size: isDie2 }];
-
-                            case 35:
-                                return _context2.abrupt('return', {
-                                    host: {
-                                        url: url,
-                                        name: "Videobin"
-                                    },
-                                    result: result
-                                });
-
-                            case 36:
-                            case 'end':
-                                return _context2.stop();
+                        function checkLive(_x) {
+                                return _ref.apply(this, arguments);
                         }
-                    }
-                }, _callee2, this);
-            }));
 
-            function getLink(_x2) {
-                return _ref2.apply(this, arguments);
-            }
+                        return checkLive;
+                }()
+        }, {
+                key: 'convertToEmbed',
+                value: function convertToEmbed(url) {
 
-            return getLink;
-        }()
-    }]);
+                        // convert link detail to link embed
+                        // if input is embed then return input
 
-    return Videobin;
+                        // let id = url.match(/\/embed\-([^\-]+)/i);
+                        // id = url != null ? url[1] : false;
+
+                        // if( id == false ) return url;
+
+                }
+        }, {
+                key: 'getLink',
+                value: function () {
+                        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                                var _libs, httpRequest, cheerio, newUrl, _parts, html, ClapprThumbnailsPlugin, LevelSelector, thumbs, ClapprSubtitle, player, result, isDie, isDie1, isDie2;
+
+                                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                        while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                        case 0:
+                                                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                                                        _context2.next = 2;
+                                                                        break;
+                                                                }
+
+                                                                throw new Error("LINK DIE");
+
+                                                        case 2:
+                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                                                newUrl = url;
+
+
+                                                                if (!newUrl.includes("embed")) {
+                                                                        _parts = newUrl.split("/");
+
+                                                                        _parts[_parts.length - 1] = "embed-" + _parts[_parts.length - 1];
+                                                                        newUrl = _parts.join("/");
+                                                                }
+                                                                _context2.next = 7;
+                                                                return this.checkLive(newUrl);
+
+                                                        case 7:
+                                                                html = _context2.sent;
+
+                                                                if (!(html == false)) {
+                                                                        _context2.next = 10;
+                                                                        break;
+                                                                }
+
+                                                                throw new Error("vidlox LINK DIE");
+
+                                                        case 10:
+
+                                                                html = html.substring(html.indexOf("var player = new Clappr.Player"));
+                                                                html = html.substring(0, 3 + html.indexOf("});"));
+
+                                                                ClapprThumbnailsPlugin = "", LevelSelector = "", thumbs = "", ClapprSubtitle = "";
+
+
+                                                                html = html.replace("new Clappr.Player", "");
+                                                                html = html.replace("var player", "player");
+
+                                                                eval(html); // player
+                                                                result = void 0;
+
+
+                                                                if (!player.sources.length > 0) result = [{ label: "Error", file: "Link dead" }];
+
+                                                                if (!(player.sources.length === 2)) {
+                                                                        _context2.next = 25;
+                                                                        break;
+                                                                }
+
+                                                                _context2.next = 21;
+                                                                return httpRequest.isLinkDie(player.sources[1]);
+
+                                                        case 21:
+                                                                isDie = _context2.sent;
+
+                                                                if (!(player.sources[1].indexOf('http') !== 0)) {
+                                                                        _context2.next = 24;
+                                                                        break;
+                                                                }
+
+                                                                throw new Error('Invalid link');
+
+                                                        case 24:
+                                                                result = [{ label: "NOR", file: player.sources[1], type: 'direct', size: isDie }];
+
+                                                        case 25:
+                                                                if (!(player.sources.length === 3)) {
+                                                                        _context2.next = 35;
+                                                                        break;
+                                                                }
+
+                                                                if (!(player.sources[1].indexOf('http') !== 0 || player.sources[2].indexOf('http') !== 0)) {
+                                                                        _context2.next = 28;
+                                                                        break;
+                                                                }
+
+                                                                throw new Error('Invalid link');
+
+                                                        case 28:
+                                                                _context2.next = 30;
+                                                                return httpRequest.isLinkDie(player.sources[2]);
+
+                                                        case 30:
+                                                                isDie1 = _context2.sent;
+                                                                _context2.next = 33;
+                                                                return httpRequest.isLinkDie(player.sources[1]);
+
+                                                        case 33:
+                                                                isDie2 = _context2.sent;
+
+
+                                                                result = [{ label: "NOR", file: player.sources[2], type: 'direct', size: isDie1 }, { label: "SD", file: player.sources[1], type: 'direct', size: isDie2 }];
+
+                                                        case 35:
+                                                                return _context2.abrupt('return', {
+                                                                        host: {
+                                                                                url: url,
+                                                                                name: "Videobin"
+                                                                        },
+                                                                        result: result
+                                                                });
+
+                                                        case 36:
+                                                        case 'end':
+                                                                return _context2.stop();
+                                                }
+                                        }
+                                }, _callee2, this);
+                        }));
+
+                        function getLink(_x2) {
+                                return _ref2.apply(this, arguments);
+                        }
+
+                        return getLink;
+                }()
+        }]);
+
+        return Videobin;
 }();
 
 thisSource.function = function (libs, settings) {
-    return new Videobin({ libs: libs, settings: settings });
+        return new Videobin({ libs: libs, settings: settings });
 };
