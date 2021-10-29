@@ -1,1 +1,265 @@
-var a0_0x356b=['cors','wrap','replace','enumerable','movieInfo','encrypt','data','hosts','afdah.info','getHostFromDetail','year','push','trim','afdah','https://afdah.info/','season','headers','title','writable','searchDetail','domain','next','value','match','stringHelper','episode','defineProperty','abrupt','NOT_FOUND','find','User-Agent','attr','ul\x20li','each','log','sent','same-site','apply','vi-VN,vi;q=0.8,fr-FR;q=0.6,fr;q=0.4,en-US;q=0.2,en;q=0.2','function','base64','toLowerCase','embed','settings','then','prev','Watch\x20Movies\x20Online\x202020','detailUrl','cookie','post','type','cheerio','decode','https://search.afdah.info/','throw','MD5','https://afdah.info','libs','DOMAIN','emit','text','*/*','done','cryptoJs','useragent','expired','checker','AES','stringify','httpRequest','SEARCH','href','mark','toString','testing','state','indexOf','HEADERS','Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_11_6)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/61.0.3163.100\x20Safari/537.36','disdis\x20afdah','Cannot\x20call\x20a\x20class\x20as\x20a\x20function','url','length','stop','return','afdah1','end'];(function(_0x384c78,_0x356bde){var _0x53017b=function(_0x2a7600){while(--_0x2a7600){_0x384c78['push'](_0x384c78['shift']());}};_0x53017b(++_0x356bde);}(a0_0x356b,0x1bd));var a0_0x5301=function(_0x384c78,_0x356bde){_0x384c78=_0x384c78-0x0;var _0x53017b=a0_0x356b[_0x384c78];return _0x53017b;};var _0x39e474=a0_0x5301,_createClass=function(){function _0x2a7600(_0x41f698,_0x19a59f){var _0x13363f=a0_0x5301;for(var _0x5d3bf4=0x0;_0x5d3bf4<_0x19a59f[_0x13363f('0x48')];_0x5d3bf4++){var _0x45afb7=_0x19a59f[_0x5d3bf4];_0x45afb7['enumerable']=_0x45afb7[_0x13363f('0x50')]||![],_0x45afb7['configurable']=!![];if(_0x13363f('0xc')in _0x45afb7)_0x45afb7[_0x13363f('0x8')]=!![];Object[_0x13363f('0x10')](_0x41f698,_0x45afb7['key'],_0x45afb7);}}return function(_0x59d059,_0x142658,_0x4509f1){if(_0x142658)_0x2a7600(_0x59d059['prototype'],_0x142658);if(_0x4509f1)_0x2a7600(_0x59d059,_0x4509f1);return _0x59d059;};}();function _asyncToGenerator(_0x165546){return function(){var _0x23ce09=a0_0x5301,_0x1f86ad=_0x165546[_0x23ce09('0x1b')](this,arguments);return new Promise(function(_0x41fc80,_0x4d1b66){var _0x519194=_0x23ce09;function _0x42a636(_0x1c9321,_0x868934){var _0x4136da=a0_0x5301;try{var _0x421136=_0x1f86ad[_0x1c9321](_0x868934),_0x50f2fc=_0x421136['value'];}catch(_0x1bdae8){_0x4d1b66(_0x1bdae8);return;}if(_0x421136[_0x4136da('0x34')])_0x41fc80(_0x50f2fc);else return Promise['resolve'](_0x50f2fc)[_0x4136da('0x22')](function(_0x26df2e){_0x42a636('next',_0x26df2e);},function(_0x4937e0){var _0xbd4505=_0x4136da;_0x42a636(_0xbd4505('0x2c'),_0x4937e0);});}return _0x42a636(_0x519194('0xb'));});};}function _classCallCheck(_0x42866e,_0x43cb70){var _0x1abe0a=a0_0x5301;if(!(_0x42866e instanceof _0x43cb70))throw new TypeError(_0x1abe0a('0x46'));}var URL={'DOMAIN':_0x39e474('0x2e'),'SEARCH':_0x39e474('0x2b'),'HEADERS':{'Content-Type':'application/x-www-form-urlencoded;\x20charset=UTF-8','Origin':'https://afdah.info/','Referer':_0x39e474('0x4'),'Accept-Language':_0x39e474('0x1c'),'User-Agent':_0x39e474('0x44'),'Accept':_0x39e474('0x33'),'sec-fetch-mode':_0x39e474('0x4d'),'sec-fetch-site':_0x39e474('0x1a')}},Afdah=function(){var _0x291d02=_0x39e474;function _0x390ff8(_0x64830){var _0xaa9d76=a0_0x5301;_classCallCheck(this,_0x390ff8),this[_0xaa9d76('0x2f')]=_0x64830[_0xaa9d76('0x2f')],this['movieInfo']=_0x64830['movieInfo'],this[_0xaa9d76('0x21')]=_0x64830[_0xaa9d76('0x21')],this[_0xaa9d76('0x41')]={},this[_0xaa9d76('0x6')]={};if(this['movieInfo'][_0xaa9d76('0x26')]!=undefined)try{var _0x3fe927=JSON['parse'](this[_0xaa9d76('0x2f')][_0xaa9d76('0x1e')][_0xaa9d76('0x2a')](this[_0xaa9d76('0x51')][_0xaa9d76('0x26')]));for(var _0x3367e6 in _0x3fe927){if(_0x3fe927[_0x3367e6][_0xaa9d76('0xa')][_0xaa9d76('0x42')](_0xaa9d76('0x55'))!=-0x1){var _0x392ab6=_0x3fe927[_0x3367e6]['cookie'],_0x438377=_0x392ab6[_0xaa9d76('0xd')](/__cfduid=([^;]+)/);if(_0x438377==undefined)continue;var _0x1fe82f=_0x438377[0x1],_0x1a7bf3=![];_0x438377=_0x392ab6[_0xaa9d76('0xd')](/cf_clearance=([^;]+)/);if(_0x438377!=undefined)_0x1a7bf3=_0x438377[0x1];else{_0x438377=_0x392ab6[_0xaa9d76('0xd')](/cf_clearance=([^"]+)/);if(_0x438377!=undefined)_0x1a7bf3=_0x438377[0x1];}if(!_0x1a7bf3)continue;this['headers'][_0xaa9d76('0x26')]=_0x392ab6,this[_0xaa9d76('0x6')][_0xaa9d76('0x14')]=_0x3fe927[_0x3367e6][_0xaa9d76('0x36')];}}}catch(_0x47e709){console[_0xaa9d76('0x18')](_0xaa9d76('0x45'),_0x47e709,'e');}}return _createClass(_0x390ff8,[{'key':_0x291d02('0x9'),'value':function(){var _0x33d07e=_asyncToGenerator(regeneratorRuntime['mark'](function _0x145a9d(){var _0x1f1df1,_0x34bf20,_0x1e8209,_0xd0320e,_0x3f6926,_0x1f4588,_0x2ea627,_0x280a43,_0x2f20c3,_0x5181d4,_0x2f1aa3,_0x1c74f3,_0x18f24c,_0x134238,_0x55f64f,_0x2a2997,_0x434c4e;return regeneratorRuntime['wrap'](function _0x13b1ca(_0x253275){var _0x20f704=a0_0x5301;while(0x1){switch(_0x253275[_0x20f704('0x23')]=_0x253275[_0x20f704('0xb')]){case 0x0:_0x1f1df1=this[_0x20f704('0x2f')],_0x34bf20=_0x1f1df1[_0x20f704('0x3b')],_0x1e8209=_0x1f1df1[_0x20f704('0x29')],_0xd0320e=_0x1f1df1[_0x20f704('0xe')],_0x3f6926=_0x1f1df1[_0x20f704('0x35')],_0x1f4588=_0x1f1df1['qs'],(_0x2ea627=this[_0x20f704('0x51')],_0x280a43=_0x2ea627[_0x20f704('0x7')],_0x2f20c3=_0x2ea627[_0x20f704('0x0')],_0x5181d4=_0x2ea627[_0x20f704('0x5')],_0x2f1aa3=_0x2ea627[_0x20f704('0xf')],_0x1c74f3=_0x2ea627[_0x20f704('0x28')]),_0x18f24c=![],_0x134238={'process':_0x3f6926[_0x20f704('0x39')][_0x20f704('0x52')](_0x280a43+'|||'+'title',_0x20f704('0x24'))['toString']()},_0x253275[_0x20f704('0xb')]=0x6;return _0x34bf20[_0x20f704('0x27')](URL[_0x20f704('0x3c')],URL[_0x20f704('0x43')],_0x1f4588['stringify'](_0x134238));case 0x6:_0x55f64f=_0x253275[_0x20f704('0x19')],_0x2a2997=_0x1e8209['load'](_0x55f64f[_0x20f704('0x53')]),_0x434c4e=_0x2a2997(_0x20f704('0x16')),_0x434c4e[_0x20f704('0x17')](function(){var _0x19b816=_0x20f704,_0x19d300=_0x2a2997(this)[_0x19b816('0x13')]('a')[_0x19b816('0x32')]()[_0x19b816('0x4f')](/\([0-9]+\)/i,'')[_0x19b816('0x2')](),_0x3cc645=_0x2a2997(this)[_0x19b816('0x13')]('a')[_0x19b816('0x15')](_0x19b816('0x3d')),_0x36c449=_0x2a2997(this)[_0x19b816('0x13')]('a')[_0x19b816('0x32')]()[_0x19b816('0xd')](/\(([0-9]+)\)/i);_0x36c449=_0x36c449!=null?+_0x36c449[0x1]:0x0,_0xd0320e['shallowCompare'](_0x19d300,_0x280a43)&&_0x36c449==_0x2f20c3&&(_0x18f24c=''+URL[_0x19b816('0x30')]+_0x3cc645);}),this[_0x20f704('0x41')][_0x20f704('0x25')]=_0x18f24c;return _0x253275[_0x20f704('0x11')]('return');case 0xc:case _0x20f704('0x4c'):return _0x253275[_0x20f704('0x49')]();}}},_0x145a9d,this);}));function _0x341faf(){var _0x3230c1=a0_0x5301;return _0x33d07e[_0x3230c1('0x1b')](this,arguments);}return _0x341faf;}()},{'key':_0x291d02('0x56'),'value':function(){var _0x32afbf=_0x291d02,_0x38e92a=_asyncToGenerator(regeneratorRuntime[_0x32afbf('0x3e')](function _0x939f8c(){var _0x3c965f=_0x32afbf,_0x24977e,_0x4e0a4f,_0x58410a,_0x2e6ce5,_0x41a02d,_0x547041,_0x557ebb,_0x598f88;return regeneratorRuntime[_0x3c965f('0x4e')](function _0x579d52(_0x298520){var _0x596e33=_0x3c965f;while(0x1){switch(_0x298520[_0x596e33('0x23')]=_0x298520[_0x596e33('0xb')]){case 0x0:_0x24977e=this['libs'],_0x4e0a4f=_0x24977e[_0x596e33('0x3b')],_0x58410a=_0x24977e[_0x596e33('0x29')];if(this[_0x596e33('0x41')][_0x596e33('0x25')]){_0x298520[_0x596e33('0xb')]=0x3;break;}throw new Error(_0x596e33('0x12'));case 0x3:_0x2e6ce5=[],_0x41a02d=this[_0x596e33('0x41')][_0x596e33('0x25')],_0x298520['next']=0x7;return _0x4e0a4f['getHTML'](this[_0x596e33('0x41')][_0x596e33('0x25')]);case 0x7:_0x547041=_0x298520[_0x596e33('0x19')],_0x557ebb=_0x58410a['load'](_0x547041),_0x598f88=this[_0x596e33('0x6')],_0x557ebb('iframe')[_0x596e33('0x17')](function(){var _0x19f572=_0x596e33,_0x4e06db=_0x557ebb(this)[_0x19f572('0x15')]('src');_0x4e06db[_0x19f572('0x42')]('/trailer/')==-0x1&&(_0x598f88[_0x19f572('0x47')]=_0x4e06db,_0x2e6ce5[_0x19f572('0x1')]({'provider':{'url':_0x41a02d,'name':_0x19f572('0x3')},'result':{'file':JSON[_0x19f572('0x3a')](_0x598f88),'label':_0x19f572('0x20'),'type':'embed'}}));}),this[_0x596e33('0x41')][_0x596e33('0x54')]=_0x2e6ce5;case 0xc:case _0x596e33('0x4c'):return _0x298520[_0x596e33('0x49')]();}}},_0x939f8c,this);}));function _0x315ca8(){var _0xe567f7=_0x32afbf;return _0x38e92a[_0xe567f7('0x1b')](this,arguments);}return _0x315ca8;}()}]),_0x390ff8;}();thisSource[_0x39e474('0x1d')]=function(){var _0x39497d=_0x39e474,_0x3d6900=_asyncToGenerator(regeneratorRuntime[_0x39497d('0x3e')](function _0x459003(_0x2010b2,_0x130adf,_0x2527f2){var _0x235c0d,_0x3389ba,_0x35d678,_0x317e3c;return regeneratorRuntime['wrap'](function _0x165e59(_0x44e1fb){var _0x2f7233=a0_0x5301;while(0x1){switch(_0x44e1fb[_0x2f7233('0x23')]=_0x44e1fb['next']){case 0x0:_0x235c0d=_0x2010b2[_0x2f7233('0x3b')],_0x3389ba=new Afdah({'libs':_0x2010b2,'movieInfo':_0x130adf,'settings':_0x2527f2}),_0x35d678={'name_source':_0x2f7233('0x4b'),'is_link':0x0,'type':_0x130adf[_0x2f7233('0x28')],'season':_0x130adf['season'],'episode':_0x130adf[_0x2f7233('0xf')],'title':_0x130adf[_0x2f7233('0x7')],'year':_0x130adf[_0x2f7233('0x0')],'hash':_0x2010b2[_0x2f7233('0x35')][_0x2f7233('0x2d')](_0x130adf[_0x2f7233('0x7')][_0x2f7233('0x1f')]()+_0x130adf['season']['toString']()+'aloha'+_0x130adf[_0x2f7233('0xf')][_0x2f7233('0x3f')]())[_0x2f7233('0x3f')]()},_0x317e3c=[];if(!(_0x317e3c[_0x2f7233('0x48')]==0x0)){_0x44e1fb[_0x2f7233('0xb')]=0xd;break;}_0x44e1fb['next']=0x7;return _0x3389ba[_0x2f7233('0x9')]();case 0x7:_0x44e1fb[_0x2f7233('0xb')]=0x9;return _0x3389ba[_0x2f7233('0x56')]();case 0x9:_0x317e3c=_0x3389ba[_0x2f7233('0x41')][_0x2f7233('0x54')];if(!(_0x130adf[_0x2f7233('0x38')]!=undefined)){_0x44e1fb[_0x2f7233('0xb')]=0xc;break;}return _0x44e1fb['abrupt'](_0x2f7233('0x4a'),_0x317e3c);case 0xc:_0x317e3c[_0x2f7233('0x48')]>0x0&&(_0x35d678[_0x2f7233('0x54')]=JSON['stringify'](_0x317e3c),_0x35d678[_0x2f7233('0x37')]=0xe10);case 0xd:_0x130adf['ss']!=undefined&&_0x130adf['ss']['to'](_0x130adf['cs']['id'])[_0x2f7233('0x31')](_0x130adf['c'],_0x317e3c);return _0x44e1fb[_0x2f7233('0x11')]('return',_0x317e3c);case 0xf:case _0x2f7233('0x4c'):return _0x44e1fb['stop']();}}},_0x459003,undefined);}));return function(_0x252a68,_0x554def,_0xadbaac){var _0x12646c=_0x39497d;return _0x3d6900[_0x12646c('0x1b')](this,arguments);};}(),thisSource[_0x39e474('0x40')]=Afdah;
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var URL = {
+    DOMAIN: "https://afdah.info",
+    SEARCH: 'https://search.afdah.info/',
+    HEADERS: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Origin': 'https://afdah.info/',
+        'Referer': 'https://afdah.info/',
+        'Accept-Language': 'vi-VN,vi;q=0.8,fr-FR;q=0.6,fr;q=0.4,en-US;q=0.2,en;q=0.2',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+        'Accept': '*/*',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site'
+    }
+};
+
+var Afdah = function () {
+    function Afdah(props) {
+        _classCallCheck(this, Afdah);
+
+        this.libs = props.libs;
+        this.movieInfo = props.movieInfo;
+        this.settings = props.settings;
+
+        this.state = {};
+        this.headers = {};
+
+        if (this.movieInfo.cookie != undefined) {
+            try {
+                var cookies = JSON.parse(this.libs.base64.decode(this.movieInfo.cookie));
+                for (var i in cookies) {
+                    if (cookies[i].domain.indexOf('afdah.info') != -1) {
+                        var c = cookies[i].cookie;
+
+                        var m = c.match(/__cfduid=([^;]+)/);
+
+                        if (m == undefined) continue;
+                        var cfuid = m[1];
+
+                        var cfclear = false;
+                        m = c.match(/cf_clearance=([^;]+)/);
+                        if (m != undefined) cfclear = m[1];else {
+                            m = c.match(/cf_clearance=([^"]+)/);
+                            if (m != undefined) cfclear = m[1];
+                        }
+                        if (!cfclear) continue;
+
+                        //this.headers['cookie'] = `__cfduid=${cfuid}; cf_clearance=${cfclear}`;
+                        this.headers['cookie'] = c;
+                        this.headers['User-Agent'] = cookies[i].useragent;
+                    }
+                }
+            } catch (e) {
+                console.log('disdis afdah', e, 'e');
+            }
+        }
+    }
+
+    _createClass(Afdah, [{
+        key: 'searchDetail',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+                var _libs, httpRequest, cheerio, stringHelper, cryptoJs, qs, _movieInfo, title, year, season, episode, type, detailUrl, bodyRequest, htmlSearch, $, itemSearch;
+
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio, stringHelper = _libs.stringHelper, cryptoJs = _libs.cryptoJs, qs = _libs.qs;
+                                _movieInfo = this.movieInfo, title = _movieInfo.title, year = _movieInfo.year, season = _movieInfo.season, episode = _movieInfo.episode, type = _movieInfo.type;
+                                detailUrl = false;
+                                bodyRequest = {
+                                    process: cryptoJs.AES.encrypt(title + '|||' + 'title', 'Watch Movies Online 2020').toString()
+                                };
+                                _context.next = 6;
+                                return httpRequest.post(URL.SEARCH, URL.HEADERS, qs.stringify(bodyRequest));
+
+                            case 6:
+                                htmlSearch = _context.sent;
+                                $ = cheerio.load(htmlSearch.data);
+                                itemSearch = $('ul li');
+
+
+                                itemSearch.each(function () {
+
+                                    var titleAfdah = $(this).find('a').text().replace(/\([0-9]+\)/i, '').trim();
+                                    var id = $(this).find('a').attr('href');
+                                    var yearAfdah = $(this).find('a').text().match(/\(([0-9]+)\)/i);
+                                    yearAfdah = yearAfdah != null ? +yearAfdah[1] : 0;
+
+                                    if (stringHelper.shallowCompare(titleAfdah, title) && yearAfdah == year) {
+                                        detailUrl = '' + URL.DOMAIN + id;
+                                    }
+                                });
+
+                                this.state.detailUrl = detailUrl;
+                                return _context.abrupt('return');
+
+                            case 12:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function searchDetail() {
+                return _ref.apply(this, arguments);
+            }
+
+            return searchDetail;
+        }()
+    }, {
+        key: 'getHostFromDetail',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                var _libs2, httpRequest, cheerio, hosts, detailUrl, htmlDetail, $, headers;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+
+                                if (this.state.detailUrl) {
+                                    _context2.next = 3;
+                                    break;
+                                }
+
+                                throw new Error("NOT_FOUND");
+
+                            case 3:
+                                hosts = [];
+                                detailUrl = this.state.detailUrl;
+                                _context2.next = 7;
+                                return httpRequest.getHTML(this.state.detailUrl);
+
+                            case 7:
+                                htmlDetail = _context2.sent;
+                                $ = cheerio.load(htmlDetail);
+                                headers = this.headers;
+
+                                $('iframe').each(function () {
+
+                                    var ifsrc = $(this).attr('src');
+                                    if (ifsrc.indexOf('/trailer/') == -1) {
+                                        headers['url'] = ifsrc;
+                                        hosts.push({
+                                            provider: {
+                                                url: detailUrl,
+                                                name: "afdah"
+                                            },
+                                            result: {
+                                                file: JSON.stringify(headers),
+                                                label: "embed",
+                                                type: "embed"
+                                            }
+                                        });
+                                    }
+                                });
+
+                                this.state.hosts = hosts;
+
+                            case 12:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function getHostFromDetail() {
+                return _ref2.apply(this, arguments);
+            }
+
+            return getHostFromDetail;
+        }()
+    }]);
+
+    return Afdah;
+}();
+
+thisSource.function = function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(libs, movieInfo, settings) {
+        var httpRequest, source, bodyPost, hosts;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                        httpRequest = libs.httpRequest;
+                        source = new Afdah({
+                            libs: libs,
+                            movieInfo: movieInfo,
+                            settings: settings
+                        });
+                        bodyPost = {
+                            name_source: 'afdah1',
+                            is_link: 0,
+                            type: movieInfo.type,
+                            season: movieInfo.season,
+                            episode: movieInfo.episode,
+                            title: movieInfo.title,
+                            year: movieInfo.year,
+                            hash: libs.cryptoJs.MD5(movieInfo.title.toLowerCase() + movieInfo.season.toString() + "aloha" + movieInfo.episode.toString()).toString()
+                        };
+                        hosts = [];
+
+                        if (!(hosts.length == 0)) {
+                            _context3.next = 13;
+                            break;
+                        }
+
+                        _context3.next = 7;
+                        return source.searchDetail();
+
+                    case 7:
+                        _context3.next = 9;
+                        return source.getHostFromDetail();
+
+                    case 9:
+                        hosts = source.state.hosts;
+
+                        if (!(movieInfo.checker != undefined)) {
+                            _context3.next = 12;
+                            break;
+                        }
+
+                        return _context3.abrupt('return', hosts);
+
+                    case 12:
+
+                        if (hosts.length > 0) {
+                            bodyPost['hosts'] = JSON.stringify(hosts);
+                            bodyPost['expired'] = 3600;
+                            //await httpRequest.post('https://getaz.morphtv.club/source/set', {}, bodyPost);
+                        }
+
+                    case 13:
+
+                        if (movieInfo.ss != undefined) {
+                            movieInfo.ss.to(movieInfo.cs.id).emit(movieInfo.c, hosts);
+                        }
+                        return _context3.abrupt('return', hosts);
+
+                    case 15:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, undefined);
+    }));
+
+    return function (_x, _x2, _x3) {
+        return _ref3.apply(this, arguments);
+    };
+}();
+
+thisSource.testing = Afdah;
