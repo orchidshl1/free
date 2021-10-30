@@ -854,14 +854,6 @@
             "version": "0.0.4",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamtape.js?v0.0.5"
         },
-        "streamzz": {
-            "name": "streamzz",
-            "domain": [
-                "streamzz.to"
-            ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/streamzz.js?v0.0.1"
-        },
         "jetload": {
             "name": "jetload",
             "domain": [

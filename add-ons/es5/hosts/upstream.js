@@ -77,17 +77,7 @@ var Upstream = function () {
         }()
     }, {
         key: 'convertToEmbed',
-        value: function convertToEmbed(url) {
-
-            // convert link detail to link embed
-            // if input is embed then return input
-
-            // let id = url.match(/\/embed\-([^\-]+)/i);
-            // id = url != null ? url[1] : false;
-
-            // if( id == false ) return url;
-
-        }
+        value: function convertToEmbed(url) {}
     }, {
         key: 'getLink',
         value: function () {
@@ -123,31 +113,6 @@ var Upstream = function () {
                                 throw new Error("LINK DIE");
 
                             case 9:
-
-                                /*
-                                let startIndex  = html.indexOf('jwplayer("vplayer").setup');
-                                html            = html.substring(startIndex);
-                                html            = html.substring(0, html.indexOf(".setVolume("));
-                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
-                                html            += ";";
-                                 var player;
-                                eval(html);
-                                let data = player.sources;
-                                 let arrPromise = data.map( async val => {
-                                    
-                                    let isDie = await httpRequest.isLinkDie(val.file);
-                                     if( isDie != false ) {
-                                         sources.push({
-                                            label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
-                                            file: val.file,
-                                            type: "embed",
-                                            size: isDie
-                                        });
-                                    }
-                                
-                                 });
-                                 await Promise.all(arrPromise);
-                                */
                                 m = html.match(/eval(.+?(?=split))/);
 
                                 if (!(m != undefined)) {
@@ -198,6 +163,7 @@ var Upstream = function () {
                                 });
 
                             case 30:
+                                console.log('xxxxupstream', linkDir[1]);
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -206,7 +172,7 @@ var Upstream = function () {
                                     result: sources
                                 });
 
-                            case 31:
+                            case 32:
                             case 'end':
                                 return _context2.stop();
                         }
