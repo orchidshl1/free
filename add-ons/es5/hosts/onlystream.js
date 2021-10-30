@@ -179,8 +179,8 @@ var Onlystream = function () {
                                 /*
                                 let m = html.split('sources: ')[1].split('}],')[0] + '}]';
                                 let m1 = m.match(/file:"([^"]+)/g);
-                                  let results = [];
-                                  let m1Pro = m1.map(async (str) => {
+                                 let results = [];
+                                 let m1Pro = m1.map(async (str) => {
                                     str = str.split('"')[1];
                                     let aSize = false; //await httpRequest.isLinkDie(str);
                                     aSize = (aSize === false) ? 'NOR' : aSize;

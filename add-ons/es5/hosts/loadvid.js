@@ -7,211 +7,211 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var LoadVid = function () {
-        function LoadVid(props) {
-                _classCallCheck(this, LoadVid);
+    function LoadVid(props) {
+        _classCallCheck(this, LoadVid);
 
-                this.libs = props.libs;
-                this.settings = props.settings;
-                this.state = {};
-        }
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
 
-        _createClass(LoadVid, [{
-                key: "checkLive",
-                value: function () {
-                        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                                var _libs, httpRequest, cheerio, idEmbed, embedApi, jsonEmbed, sources;
+    _createClass(LoadVid, [{
+        key: "checkLive",
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var _libs, httpRequest, cheerio, idEmbed, embedApi, jsonEmbed, sources;
 
-                                return regeneratorRuntime.wrap(function _callee$(_context) {
-                                        while (1) {
-                                                switch (_context.prev = _context.next) {
-                                                        case 0:
-                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                                                idEmbed = url.match(/embed\/(.+)/i);
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                idEmbed = url.match(/embed\/(.+)/i);
 
-                                                                idEmbed = idEmbed != false ? idEmbed[1] : false;
+                                idEmbed = idEmbed != false ? idEmbed[1] : false;
 
-                                                                if (!(idEmbed == false)) {
-                                                                        _context.next = 5;
-                                                                        break;
-                                                                }
+                                if (!(idEmbed == false)) {
+                                    _context.next = 5;
+                                    break;
+                                }
 
-                                                                return _context.abrupt("return", false);
+                                return _context.abrupt("return", false);
 
-                                                        case 5:
-                                                                embedApi = "https://loadvid.online/player?fid=" + idEmbed + "&page=embed";
-                                                                _context.next = 8;
-                                                                return httpRequest.getHTML(embedApi, {
-                                                                        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
-                                                                });
+                            case 5:
+                                embedApi = "https://loadvid.online/player?fid=" + idEmbed + "&page=embed";
+                                _context.next = 8;
+                                return httpRequest.getHTML(embedApi, {
+                                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
+                                });
 
-                                                        case 8:
-                                                                jsonEmbed = _context.sent;
-                                                                _context.prev = 9;
+                            case 8:
+                                jsonEmbed = _context.sent;
+                                _context.prev = 9;
 
-                                                                jsonEmbed = JSON.parse(jsonEmbed);
-                                                                _context.next = 16;
-                                                                break;
+                                jsonEmbed = JSON.parse(jsonEmbed);
+                                _context.next = 16;
+                                break;
 
-                                                        case 13:
-                                                                _context.prev = 13;
-                                                                _context.t0 = _context["catch"](9);
-                                                                throw new Error("LINK DIE");
+                            case 13:
+                                _context.prev = 13;
+                                _context.t0 = _context["catch"](9);
+                                throw new Error("LINK DIE");
 
-                                                        case 16:
-                                                                if (!(jsonEmbed.status != true)) {
-                                                                        _context.next = 18;
-                                                                        break;
-                                                                }
+                            case 16:
+                                if (!(jsonEmbed.status != true)) {
+                                    _context.next = 18;
+                                    break;
+                                }
 
-                                                                return _context.abrupt("return", false);
+                                return _context.abrupt("return", false);
 
-                                                        case 18:
+                            case 18:
 
-                                                                jsonEmbed = jsonEmbed.html;
+                                jsonEmbed = jsonEmbed.html;
 
-                                                                sources = jsonEmbed.match(/sources *\: *([^\]]+)/i);
+                                sources = jsonEmbed.match(/sources *\: *([^\]]+)/i);
 
-                                                                sources = sources != null ? sources[1] + ']' : false;
+                                sources = sources != null ? sources[1] + ']' : false;
 
-                                                                if (!(sources == false)) {
-                                                                        _context.next = 23;
-                                                                        break;
-                                                                }
+                                if (!(sources == false)) {
+                                    _context.next = 23;
+                                    break;
+                                }
 
-                                                                return _context.abrupt("return", false);
+                                return _context.abrupt("return", false);
 
-                                                        case 23:
-                                                                _context.prev = 23;
+                            case 23:
+                                _context.prev = 23;
 
-                                                                sources = JSON.parse(sources);
-                                                                _context.next = 30;
-                                                                break;
+                                sources = JSON.parse(sources);
+                                _context.next = 30;
+                                break;
 
-                                                        case 27:
-                                                                _context.prev = 27;
-                                                                _context.t1 = _context["catch"](23);
-                                                                throw new Error("LINK DIE");
+                            case 27:
+                                _context.prev = 27;
+                                _context.t1 = _context["catch"](23);
+                                throw new Error("LINK DIE");
 
-                                                        case 30:
-                                                                return _context.abrupt("return", sources);
+                            case 30:
+                                return _context.abrupt("return", sources);
 
-                                                        case 31:
-                                                        case "end":
-                                                                return _context.stop();
-                                                }
-                                        }
-                                }, _callee, this, [[9, 13], [23, 27]]);
-                        }));
-
-                        function checkLive(_x) {
-                                return _ref.apply(this, arguments);
+                            case 31:
+                            case "end":
+                                return _context.stop();
                         }
+                    }
+                }, _callee, this, [[9, 13], [23, 27]]);
+            }));
 
-                        return checkLive;
-                }()
-        }, {
-                key: "getLink",
-                value: function () {
-                        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
-                                var _this = this;
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
 
-                                var _libs2, httpRequest, cheerio, sources, arrLink, results, jsonDirect, arrPromise;
+            return checkLive;
+        }()
+    }, {
+        key: "getLink",
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                var _this = this;
 
-                                return regeneratorRuntime.wrap(function _callee3$(_context3) {
-                                        while (1) {
-                                                switch (_context3.prev = _context3.next) {
-                                                        case 0:
-                                                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
-                                                                sources = [];
-                                                                arrLink = [];
-                                                                results = [];
-                                                                _context3.next = 6;
-                                                                return this.checkLive(url);
+                var _libs2, httpRequest, cheerio, sources, arrLink, results, jsonDirect, arrPromise;
 
-                                                        case 6:
-                                                                jsonDirect = _context3.sent;
+                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _libs2 = this.libs, httpRequest = _libs2.httpRequest, cheerio = _libs2.cheerio;
+                                sources = [];
+                                arrLink = [];
+                                results = [];
+                                _context3.next = 6;
+                                return this.checkLive(url);
 
-                                                                if (!(jsonDirect == false)) {
-                                                                        _context3.next = 9;
-                                                                        break;
-                                                                }
+                            case 6:
+                                jsonDirect = _context3.sent;
 
-                                                                throw new Error("LINK DIE");
+                                if (!(jsonDirect == false)) {
+                                    _context3.next = 9;
+                                    break;
+                                }
 
-                                                        case 9:
-                                                                arrPromise = jsonDirect.map(function () {
-                                                                        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
-                                                                                var isDie;
-                                                                                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                                                                        while (1) {
-                                                                                                switch (_context2.prev = _context2.next) {
-                                                                                                        case 0:
-                                                                                                                isDie = 'NOR';
-                                                                                                                _context2.prev = 1;
-                                                                                                                _context2.next = 4;
-                                                                                                                return httpRequest.isLinkDie(val.src);
+                                throw new Error("LINK DIE");
 
-                                                                                                        case 4:
-                                                                                                                isDie = _context2.sent;
-                                                                                                                _context2.next = 9;
-                                                                                                                break;
+                            case 9:
+                                arrPromise = jsonDirect.map(function () {
+                                    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
+                                        var isDie;
+                                        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                                            while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                    case 0:
+                                                        isDie = 'NOR';
+                                                        _context2.prev = 1;
+                                                        _context2.next = 4;
+                                                        return httpRequest.isLinkDie(val.src);
 
-                                                                                                        case 7:
-                                                                                                                _context2.prev = 7;
-                                                                                                                _context2.t0 = _context2["catch"](1);
+                                                    case 4:
+                                                        isDie = _context2.sent;
+                                                        _context2.next = 9;
+                                                        break;
 
-                                                                                                        case 9:
+                                                    case 7:
+                                                        _context2.prev = 7;
+                                                        _context2.t0 = _context2["catch"](1);
 
-                                                                                                                if (isDie != false && isDie != 'NOR') {
+                                                    case 9:
 
-                                                                                                                        results.push({
-                                                                                                                                file: val.src, label: 'NOR', type: "direct", size: isDie
-                                                                                                                        });
-                                                                                                                }
+                                                        if (isDie != false && isDie != 'NOR') {
 
-                                                                                                        case 10:
-                                                                                                        case "end":
-                                                                                                                return _context2.stop();
-                                                                                                }
-                                                                                        }
-                                                                                }, _callee2, _this, [[1, 7]]);
-                                                                        }));
+                                                            results.push({
+                                                                file: val.src, label: 'NOR', type: "direct", size: isDie
+                                                            });
+                                                        }
 
-                                                                        return function (_x3) {
-                                                                                return _ref3.apply(this, arguments);
-                                                                        };
-                                                                }());
-                                                                _context3.next = 12;
-                                                                return Promise.all(arrPromise);
-
-                                                        case 12:
-                                                                return _context3.abrupt("return", {
-                                                                        host: {
-                                                                                url: url,
-                                                                                name: "CDN-Stream"
-                                                                        },
-                                                                        result: results
-                                                                });
-
-                                                        case 13:
-                                                        case "end":
-                                                                return _context3.stop();
+                                                    case 10:
+                                                    case "end":
+                                                        return _context2.stop();
                                                 }
-                                        }
-                                }, _callee3, this);
-                        }));
+                                            }
+                                        }, _callee2, _this, [[1, 7]]);
+                                    }));
 
-                        function getLink(_x2) {
-                                return _ref2.apply(this, arguments);
+                                    return function (_x3) {
+                                        return _ref3.apply(this, arguments);
+                                    };
+                                }());
+                                _context3.next = 12;
+                                return Promise.all(arrPromise);
+
+                            case 12:
+                                return _context3.abrupt("return", {
+                                    host: {
+                                        url: url,
+                                        name: "CDN-Stream"
+                                    },
+                                    result: results
+                                });
+
+                            case 13:
+                            case "end":
+                                return _context3.stop();
                         }
+                    }
+                }, _callee3, this);
+            }));
 
-                        return getLink;
-                }()
-        }]);
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
 
-        return LoadVid;
+            return getLink;
+        }()
+    }]);
+
+    return LoadVid;
 }();
 
 thisSource.function = function (libs, settings) {
-        return new LoadVid({ libs: libs, settings: settings });
+    return new LoadVid({ libs: libs, settings: settings });
 };

@@ -7,131 +7,127 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Streamtape = function () {
-        function Streamtape(props) {
-                _classCallCheck(this, Streamtape);
+    function Streamtape(props) {
+        _classCallCheck(this, Streamtape);
 
-                this.libs = props.libs;
-                this.settings = props.settings;
-                this.state = {};
-        }
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
 
-        _createClass(Streamtape, [{
-                key: 'checkLive',
-                value: function () {
-                        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                                var httpRequest, html;
-                                return regeneratorRuntime.wrap(function _callee$(_context) {
-                                        while (1) {
-                                                switch (_context.prev = _context.next) {
-                                                        case 0:
-                                                                httpRequest = this.libs.httpRequest;
+    _createClass(Streamtape, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
 
-                                                                // you fill the die status text
-                                                                // const dieStatusText = "";
+                                // you fill the die status text
+                                // const dieStatusText = "";
 
-                                                                _context.next = 3;
-                                                                return httpRequest.getHTML(url);
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
 
-                                                        case 3:
-                                                                html = _context.sent;
+                            case 3:
+                                html = _context.sent;
 
-                                                                if (!html.includes("Video Was Deleted 1")) {
-                                                                        _context.next = 6;
-                                                                        break;
-                                                                }
+                                if (!html.includes("Video Was Deleted 1")) {
+                                    _context.next = 6;
+                                    break;
+                                }
 
-                                                                return _context.abrupt('return', false);
+                                return _context.abrupt('return', false);
 
-                                                        case 6:
-                                                                return _context.abrupt('return', html);
+                            case 6:
+                                return _context.abrupt('return', html);
 
-                                                        case 7:
-                                                        case 'end':
-                                                                return _context.stop();
-                                                }
-                                        }
-                                }, _callee, this);
-                        }));
-
-                        function checkLive(_x) {
-                                return _ref.apply(this, arguments);
+                            case 7:
+                            case 'end':
+                                return _context.stop();
                         }
+                    }
+                }, _callee, this);
+            }));
 
-                        return checkLive;
-                }()
-        }, {
-                key: 'getLink',
-                value: function () {
-                        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                                var _libs, httpRequest, cheerio, html, n, reg, isDie, result;
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
 
-                                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                        while (1) {
-                                                switch (_context2.prev = _context2.next) {
-                                                        case 0:
-                                                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
-                                                                        _context2.next = 2;
-                                                                        break;
-                                                                }
+            return checkLive;
+        }()
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, html, n, reg, result;
 
-                                                                throw new Error("LINK DIE");
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context2.next = 2;
+                                    break;
+                                }
 
-                                                        case 2:
-                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                                                                _context2.next = 5;
-                                                                return this.checkLive(url);
+                                throw new Error("LINK DIE");
 
-                                                        case 5:
-                                                                html = _context2.sent;
+                            case 2:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+                                _context2.next = 5;
+                                return this.checkLive(url);
 
-                                                                if (!(html == false)) {
-                                                                        _context2.next = 8;
-                                                                        break;
-                                                                }
+                            case 5:
+                                html = _context2.sent;
 
-                                                                throw new Error("Streamtape LINK DIE");
+                                if (!(html == false)) {
+                                    _context2.next = 8;
+                                    break;
+                                }
 
-                                                        case 8:
-                                                                n = '';
-                                                                reg = /document\.getElementById\(\'videoolink\'\)\.innerHTML = \"(.+?(?=.substring))/mg;
+                                throw new Error("Streamtape LINK DIE");
 
-                                                                n = reg.exec(html);
-                                                                console.log(n);
-                                                                _context2.next = 14;
-                                                                return httpRequest.isLinkDie(u);
+                            case 8:
+                                n = '';
+                                reg = /document\.getElementById\(\'videoolink\'\)\.innerHTML = \"(.+?(?=.substring))/mg;
 
-                                                        case 14:
-                                                                isDie = _context2.sent;
-                                                                result = [];
-                                                                //result.push({ label: "NOR", file: u, type: 'direct', size: isDie });
+                                n = reg.exec(html);
+                                console.log(n);
+                                //let isDie = await httpRequest.isLinkDie(u);
+                                result = [];
+                                //result.push({ label: "NOR", file: u, type: 'direct', size: isDie });
 
-                                                                return _context2.abrupt('return', {
-                                                                        host: {
-                                                                                url: url,
-                                                                                name: "Streamtape"
-                                                                        },
-                                                                        result: result
-                                                                });
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Streamtape"
+                                    },
+                                    result: result
+                                });
 
-                                                        case 17:
-                                                        case 'end':
-                                                                return _context2.stop();
-                                                }
-                                        }
-                                }, _callee2, this);
-                        }));
-
-                        function getLink(_x2) {
-                                return _ref2.apply(this, arguments);
+                            case 14:
+                            case 'end':
+                                return _context2.stop();
                         }
+                    }
+                }, _callee2, this);
+            }));
 
-                        return getLink;
-                }()
-        }]);
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
 
-        return Streamtape;
+            return getLink;
+        }()
+    }]);
+
+    return Streamtape;
 }();
 
 thisSource.function = function (libs, settings) {
-        return new Streamtape({ libs: libs, settings: settings });
+    return new Streamtape({ libs: libs, settings: settings });
 };

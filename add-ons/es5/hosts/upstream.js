@@ -130,14 +130,14 @@ var Upstream = function () {
                                 html            = html.substring(0, html.indexOf(".setVolume("));
                                 html            = html.replace('jwplayer("vplayer").setup', "player = ");
                                 html            += ";";
-                                  var player;
+                                 var player;
                                 eval(html);
                                 let data = player.sources;
-                                  let arrPromise = data.map( async val => {
+                                 let arrPromise = data.map( async val => {
                                     
                                     let isDie = await httpRequest.isLinkDie(val.file);
-                                      if( isDie != false ) {
-                                          sources.push({
+                                     if( isDie != false ) {
+                                         sources.push({
                                             label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
                                             file: val.file,
                                             type: "embed",
@@ -145,8 +145,8 @@ var Upstream = function () {
                                         });
                                     }
                                 
-                                  });
-                                  await Promise.all(arrPromise);
+                                 });
+                                 await Promise.all(arrPromise);
                                 */
                                 m = html.match(/eval(.+?(?=split))/);
 

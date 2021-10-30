@@ -8,188 +8,188 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 // https://upstream.to/
 var Upstreamto = function () {
-        function Upstreamto(props) {
-                _classCallCheck(this, Upstreamto);
+    function Upstreamto(props) {
+        _classCallCheck(this, Upstreamto);
 
-                this.libs = props.libs;
-                this.settings = props.settings;
-                this.state = {};
+        this.libs = props.libs;
+        this.settings = props.settings;
+        this.state = {};
+    }
+
+    _createClass(Upstreamto, [{
+        key: 'getQuality',
+        value: function getQuality(url) {
+            var qualities = ['DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu ray', 'Bluray', 'Blu-ray', 'BDRip', 'WEB', 'HDTS', 'TS', 'CAM'];
+
+            for (var i in qualities) {
+                var quality = qualities[i];
+                if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
+                    return quality;
+                }
+            }
+
+            return false;
         }
+    }, {
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
 
-        _createClass(Upstreamto, [{
-                key: 'getQuality',
-                value: function getQuality(url) {
-                        var qualities = ['DVDRip', 'HDTV', 'HDRip', 'WEB-DL', 'WEBRip', 'BRRip', 'Blu ray', 'Bluray', 'Blu-ray', 'BDRip', 'WEB', 'HDTS', 'TS', 'CAM'];
+                                // you fill the die status text
+                                // const dieStatusText = "";
 
-                        for (var i in qualities) {
-                                var quality = qualities[i];
-                                if (url.toLowerCase().indexOf(quality.toLowerCase()) != -1) {
-                                        return quality;
+                                _context.next = 3;
+                                return httpRequest.getHTML(url);
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
+        key: 'convertToEmbed',
+        value: function convertToEmbed(url) {
+
+            // convert link detail to link embed
+            // if input is embed then return input
+
+            // let id = url.match(/\/embed\-([^\-]+)/i);
+            // id = url != null ? url[1] : false;
+
+            // if( id == false ) return url;
+
+        }
+    }, {
+        key: 'getLink',
+        value: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, sources, html, m, isDie, s;
+
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
+
+                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
+                                    _context2.next = 3;
+                                    break;
                                 }
+
+                                throw new Error("LINK DIE");
+
+                            case 3:
+                                sources = [];
+                                _context2.next = 6;
+                                return this.checkLive(url);
+
+                            case 6:
+                                html = _context2.sent;
+
+                                if (!(html == false)) {
+                                    _context2.next = 9;
+                                    break;
+                                }
+
+                                throw new Error("LINK DIE");
+
+                            case 9:
+
+                                /*
+                                let startIndex  = html.indexOf('jwplayer("vplayer").setup');
+                                html            = html.substring(startIndex);
+                                html            = html.substring(0, html.indexOf(".setVolume("));
+                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
+                                html            += ";";
+                                 var player;
+                                eval(html);
+                                let data = player.sources;
+                                 let arrPromise = data.map( async val => {
+                                    
+                                    let isDie = await httpRequest.isLinkDie(val.file);
+                                     if( isDie != false ) {
+                                         sources.push({
+                                            label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
+                                            file: val.file,
+                                            type: "embed",
+                                            size: isDie
+                                        });
+                                    }
+                                
+                                 });
+                                 await Promise.all(arrPromise);
+                                */
+
+                                m = html.match(/file:"([^"]+)/);
+
+                                console.log(m);
+
+                                if (!(m != undefined)) {
+                                    _context2.next = 17;
+                                    break;
+                                }
+
+                                _context2.next = 14;
+                                return httpRequest.isLinkDie(m[1]);
+
+                            case 14:
+                                isDie = _context2.sent;
+                                s = {
+                                    label: "NOR",
+                                    file: m[1],
+                                    type: "direct",
+                                    size: isDie ? isDie : "NOR"
+                                };
+
+                                sources.push(s);
+
+                            case 17:
+                                return _context2.abrupt('return', {
+                                    host: {
+                                        url: url,
+                                        name: "Upstreamto"
+                                    },
+                                    result: []
+                                });
+
+                            case 18:
+                            case 'end':
+                                return _context2.stop();
                         }
+                    }
+                }, _callee2, this);
+            }));
 
-                        return false;
-                }
-        }, {
-                key: 'checkLive',
-                value: function () {
-                        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                                var httpRequest, html;
-                                return regeneratorRuntime.wrap(function _callee$(_context) {
-                                        while (1) {
-                                                switch (_context.prev = _context.next) {
-                                                        case 0:
-                                                                httpRequest = this.libs.httpRequest;
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
+            }
 
-                                                                // you fill the die status text
-                                                                // const dieStatusText = "";
+            return getLink;
+        }()
+    }]);
 
-                                                                _context.next = 3;
-                                                                return httpRequest.getHTML(url);
-
-                                                        case 3:
-                                                                html = _context.sent;
-                                                                return _context.abrupt('return', html);
-
-                                                        case 5:
-                                                        case 'end':
-                                                                return _context.stop();
-                                                }
-                                        }
-                                }, _callee, this);
-                        }));
-
-                        function checkLive(_x) {
-                                return _ref.apply(this, arguments);
-                        }
-
-                        return checkLive;
-                }()
-        }, {
-                key: 'convertToEmbed',
-                value: function convertToEmbed(url) {
-
-                        // convert link detail to link embed
-                        // if input is embed then return input
-
-                        // let id = url.match(/\/embed\-([^\-]+)/i);
-                        // id = url != null ? url[1] : false;
-
-                        // if( id == false ) return url;
-
-                }
-        }, {
-                key: 'getLink',
-                value: function () {
-                        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
-                                var _libs, httpRequest, cheerio, sources, html, m, isDie, s;
-
-                                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                                        while (1) {
-                                                switch (_context2.prev = _context2.next) {
-                                                        case 0:
-                                                                _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-
-                                                                if (!(url.search('https://') == -1 && url.search('http://') == -1)) {
-                                                                        _context2.next = 3;
-                                                                        break;
-                                                                }
-
-                                                                throw new Error("LINK DIE");
-
-                                                        case 3:
-                                                                sources = [];
-                                                                _context2.next = 6;
-                                                                return this.checkLive(url);
-
-                                                        case 6:
-                                                                html = _context2.sent;
-
-                                                                if (!(html == false)) {
-                                                                        _context2.next = 9;
-                                                                        break;
-                                                                }
-
-                                                                throw new Error("LINK DIE");
-
-                                                        case 9:
-
-                                                                /*
-                                                                let startIndex  = html.indexOf('jwplayer("vplayer").setup');
-                                                                html            = html.substring(startIndex);
-                                                                html            = html.substring(0, html.indexOf(".setVolume("));
-                                                                html            = html.replace('jwplayer("vplayer").setup', "player = ");
-                                                                html            += ";";
-                                                                  var player;
-                                                                eval(html);
-                                                                let data = player.sources;
-                                                                  let arrPromise = data.map( async val => {
-                                                                    
-                                                                    let isDie = await httpRequest.isLinkDie(val.file);
-                                                                      if( isDie != false ) {
-                                                                          sources.push({
-                                                                            label: val.file.indexOf("mp4") !== -1 ? val.label : "NOR",
-                                                                            file: val.file,
-                                                                            type: "embed",
-                                                                            size: isDie
-                                                                        });
-                                                                    }
-                                                                
-                                                                  });
-                                                                  await Promise.all(arrPromise);
-                                                                */
-
-                                                                m = html.match(/file:"([^"]+)/);
-
-                                                                console.log(m);
-
-                                                                if (!(m != undefined)) {
-                                                                        _context2.next = 17;
-                                                                        break;
-                                                                }
-
-                                                                _context2.next = 14;
-                                                                return httpRequest.isLinkDie(m[1]);
-
-                                                        case 14:
-                                                                isDie = _context2.sent;
-                                                                s = {
-                                                                        label: "NOR",
-                                                                        file: m[1],
-                                                                        type: "direct",
-                                                                        size: isDie ? isDie : "NOR"
-                                                                };
-
-                                                                sources.push(s);
-
-                                                        case 17:
-                                                                return _context2.abrupt('return', {
-                                                                        host: {
-                                                                                url: url,
-                                                                                name: "Upstreamto"
-                                                                        },
-                                                                        result: []
-                                                                });
-
-                                                        case 18:
-                                                        case 'end':
-                                                                return _context2.stop();
-                                                }
-                                        }
-                                }, _callee2, this);
-                        }));
-
-                        function getLink(_x2) {
-                                return _ref2.apply(this, arguments);
-                        }
-
-                        return getLink;
-                }()
-        }]);
-
-        return Upstreamto;
+    return Upstreamto;
 }();
 
 thisSource.function = function (libs, settings) {
-        return new Upstreamto({ libs: libs, settings: settings });
+    return new Upstreamto({ libs: libs, settings: settings });
 };

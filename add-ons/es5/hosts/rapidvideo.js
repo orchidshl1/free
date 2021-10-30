@@ -113,27 +113,27 @@ var RapidVideo = function () {
 
                                 /*
                                 let quality = $('div[style*="height:30px; width:500px; margin:0 auto; color:#FFF; font-size:15px; line-height:30px; float:left;"]').find('a');
-                                    quality.each(function() {
-                                      let linkQuality = $(this).attr('href');
-                                      if(linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
+                                  quality.each(function() {
+                                     let linkQuality = $(this).attr('href');
+                                     if(linkQuality.indexOf('http') != -1 && linkQuality.indexOf('&q=') != -1) {
                                         arrVideoQuality.push(linkQuality);
                                     }
                                     
                                 });
-                                  let arrPromise = arrVideoQuality.map(async function(val) {
-                                      let label       = val.match(/\&q\=(.+)/i);
+                                 let arrPromise = arrVideoQuality.map(async function(val) {
+                                     let label       = val.match(/\&q\=(.+)/i);
                                     label           = label != null ? label[1] : 'NOR';
                                     let htmlDirect  = await httpRequest.getHTML(val); 
                                     let $           = cheerio.load(htmlDirect);
                                     let linkDirect  = $('#videojs source').attr('src');
                                     let isDie       = await httpRequest.isLinkDie(linkDirect);
-                                          if( isDie != false ) {
-                                          results.push({
+                                         if( isDie != false ) {
+                                         results.push({
                                             file: linkDirect, label: label, type: "direct" , size: isDie
                                         });
                                      }
                                 });
-                                    await Promise.all(arrPromise);
+                                  await Promise.all(arrPromise);
                                 */
 
                                 links = [];
