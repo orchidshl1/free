@@ -43,30 +43,26 @@ var Upstream = function () {
                                 // you fill the die status text
                                 // const dieStatusText = "";
 
-                                console.log('Upstreamaaaa', url);
-                                _context.prev = 2;
-                                _context.next = 5;
+                                _context.prev = 1;
+                                _context.next = 4;
                                 return httpRequest.getHTML(url, { 'User-agent': 'Mozilla/5.0 (X1111; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/79.0. 3945.79 Chrome/79.0.3945.79 Safari/537.36' });
 
-                            case 5:
+                            case 4:
                                 html = _context.sent;
-
-                                console.log('Upstreamaaaa done', url);
-                                // if(html.includes(dieStatusText)) return true;
                                 return _context.abrupt('return', html);
 
-                            case 10:
-                                _context.prev = 10;
-                                _context.t0 = _context['catch'](2);
+                            case 8:
+                                _context.prev = 8;
+                                _context.t0 = _context['catch'](1);
 
                                 console.log('Upstreamaaa err', _context.t0);
 
-                            case 13:
+                            case 11:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[2, 10]]);
+                }, _callee, this, [[1, 8]]);
             }));
 
             function checkLive(_x) {
@@ -150,7 +146,7 @@ var Upstream = function () {
                                 html1 = _context2.sent;
                                 linkDir = html1.match(/(http.+\.m3u8)/);
                                 _context2.next = 25;
-                                return httpRequest.isLinkDie(linkDir);
+                                return httpRequest.isLinkDie(linkDir[1]);
 
                             case 25:
                                 size = _context2.sent;
@@ -163,7 +159,6 @@ var Upstream = function () {
                                 });
 
                             case 30:
-                                console.log('xxxxupstream', linkDir[1]);
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -172,7 +167,7 @@ var Upstream = function () {
                                     result: sources
                                 });
 
-                            case 32:
+                            case 31:
                             case 'end':
                                 return _context2.stop();
                         }
