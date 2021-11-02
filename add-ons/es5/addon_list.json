@@ -739,10 +739,11 @@
             "name": "mixdrop",
             "domain": [
                 "mixdrop.co",
-                "mixdrop.to"
+                "mixdrop.to",
+                "mixdrop.sx"
             ],
-            "version": "0.0.19",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mixdrop.js?v19"
+            "version": "0.1.0",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mixdrop.js?v21"
         },
         "cloudvideo": {
             "name": "cloudvideo",
