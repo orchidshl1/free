@@ -10,16 +10,6 @@
                 "tv"
             ]
         },
-        "simplestream": {
-            "name": "simplestream",
-            "domain": "simplestream.in",
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/simplestream.js?v0.0.0.1",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
         "icefilmsinfo": {
             "name": "icefilmsinfo",
             "domain": "icefilms-info.com",
