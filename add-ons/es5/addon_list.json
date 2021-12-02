@@ -701,22 +701,6 @@
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/highstream.js?1"
         },
-        "aparat": {
-            "name": "aparat",
-            "domain": [
-                "aparat.cam"
-            ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/aparat.js?v1"
-        },
-        "wolfstream": {
-            "name": "wolfstream",
-            "domain": [
-                "wolfstream.tv"
-            ],
-            "version": "0.0.3",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/wolfstream.js?v3"
-        },
         "vshare": {
             "name": "vshare",
             "domain": [
