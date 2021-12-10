@@ -86,32 +86,39 @@ var Stream365 = function () {
                                 id = $('#player').attr("data-id");
                                 new_url = 'http://' + url.split("/")[2] + '/ajax/getSources/' + id;
                                 _context2.next = 12;
-                                return httpRequest.getJSON(new_url, { 'referer': url });
+                                return httpRequest.get(new_url, { 'referer': url });
 
                             case 12:
                                 result = _context2.sent;
                                 isDie = 'NOR';
-                                _context2.prev = 14;
-                                _context2.next = 17;
-                                return httpRequest.isLinkDie(result.sources[0].file);
 
-                            case 17:
+                                if (!result.data.sources) {
+                                    _context2.next = 25;
+                                    break;
+                                }
+
+                                _context2.prev = 15;
+                                _context2.next = 18;
+                                return httpRequest.isLinkDie(result.data.sources[0].file);
+
+                            case 18:
                                 isDie = _context2.sent;
-                                _context2.next = 23;
+                                _context2.next = 24;
                                 break;
 
-                            case 20:
-                                _context2.prev = 20;
-                                _context2.t0 = _context2['catch'](14);
+                            case 21:
+                                _context2.prev = 21;
+                                _context2.t0 = _context2['catch'](15);
 
                                 console.log('direct_err', _context2.t0);
 
-                            case 23:
+                            case 24:
 
                                 results.push({
-                                    file: result.sources[0].file, label: 'NOR', type: "direct", size: isDie, referer: url
+                                    file: result.data.sources[0].file, label: 'NOR', type: "direct", size: isDie, referer: url
                                 });
 
+                            case 25:
                                 return _context2.abrupt('return', {
                                     host: {
                                         url: url,
@@ -120,12 +127,12 @@ var Stream365 = function () {
                                     result: results
                                 });
 
-                            case 25:
+                            case 26:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[14, 20]]);
+                }, _callee2, this, [[15, 21]]);
             }));
 
             function getLink(_x2) {

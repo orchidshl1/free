@@ -553,7 +553,6 @@
             "name": "direct",
             "domain": [
                 "bmovies.vip",
-                "stream365.live",
                 "mellimovies.com",
                 "unlimited4.me",
                 "filmha.co",
@@ -780,8 +779,8 @@
                 "s8.stream365.live",
                 "s9.stream365.live"
             ],
-            "version": "0.0.2",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/stream365.js?v2"
+            "version": "0.0.3",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/stream365.js?v3"
         },
         "dramacoolembed": {
             "name": "dramacoolembed",
