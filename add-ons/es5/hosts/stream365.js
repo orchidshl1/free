@@ -16,6 +16,41 @@ var Stream365 = function () {
     }
 
     _createClass(Stream365, [{
+        key: 'checkLive',
+        value: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
+                var httpRequest, html;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                httpRequest = this.libs.httpRequest;
+
+                                // you fill the die status text
+                                // const dieStatusText = "";
+
+                                _context.next = 3;
+                                return httpRequest.getHTML(url, { 'referer': 'https://bmovies.vip/' });
+
+                            case 3:
+                                html = _context.sent;
+                                return _context.abrupt('return', html);
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function checkLive(_x) {
+                return _ref.apply(this, arguments);
+            }
+
+            return checkLive;
+        }()
+    }, {
         key: 'convertToEmbed',
         value: function convertToEmbed() {
 
@@ -25,15 +60,15 @@ var Stream365 = function () {
     }, {
         key: 'getLink',
         value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var _libs, httpRequest, cheerio, results, isDie;
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url) {
+                var _libs, httpRequest, cheerio, results, html, $, id, new_url, result, isDie;
 
-                return regeneratorRuntime.wrap(function _callee$(_context) {
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
                     while (1) {
-                        switch (_context.prev = _context.next) {
+                        switch (_context2.prev = _context2.next) {
                             case 0:
                                 if (!(url.indexOf('http://') != 0 && url.indexOf('https://') != 0)) {
-                                    _context.next = 2;
+                                    _context2.next = 2;
                                     break;
                                 }
 
@@ -42,31 +77,42 @@ var Stream365 = function () {
                             case 2:
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
                                 results = [];
-                                isDie = 'NOR';
-                                _context.prev = 5;
-                                _context.next = 8;
-                                return httpRequest.isLinkDie(url);
+                                _context2.next = 6;
+                                return this.checkLive(url);
 
-                            case 8:
-                                isDie = _context.sent;
-                                _context.next = 14;
+                            case 6:
+                                html = _context2.sent;
+                                $ = cheerio.load(html);
+                                id = $('#player').attr("data-id");
+                                new_url = 'http://' + url.split("/")[2] + '/ajax/getSources/' + id;
+                                _context2.next = 12;
+                                return httpRequest.getJSON(new_url, { 'referer': url });
+
+                            case 12:
+                                result = _context2.sent;
+                                isDie = 'NOR';
+                                _context2.prev = 14;
+                                _context2.next = 17;
+                                return httpRequest.isLinkDie(result.sources[0].file);
+
+                            case 17:
+                                isDie = _context2.sent;
+                                _context2.next = 23;
                                 break;
 
-                            case 11:
-                                _context.prev = 11;
-                                _context.t0 = _context['catch'](5);
+                            case 20:
+                                _context2.prev = 20;
+                                _context2.t0 = _context2['catch'](14);
 
-                                console.log('direct_err', _context.t0);
+                                console.log('direct_err', _context2.t0);
 
-                            case 14:
-                                console.log(isDie);
-                                if (isDie != false && isDie != 'NOR') {
-                                    results.push({
-                                        file: url, label: 'NOR', type: "direct", size: isDie, referer: 'https://bmovies.vip/'
-                                    });
-                                }
+                            case 23:
 
-                                return _context.abrupt('return', {
+                                results.push({
+                                    file: result.sources[0].file, label: 'NOR', type: "direct", size: isDie, referer: url
+                                });
+
+                                return _context2.abrupt('return', {
                                     host: {
                                         url: url,
                                         name: "Stream365"
@@ -74,16 +120,16 @@ var Stream365 = function () {
                                     result: results
                                 });
 
-                            case 17:
+                            case 25:
                             case 'end':
-                                return _context.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee, this, [[5, 11]]);
+                }, _callee2, this, [[14, 20]]);
             }));
 
-            function getLink(_x) {
-                return _ref.apply(this, arguments);
+            function getLink(_x2) {
+                return _ref2.apply(this, arguments);
             }
 
             return getLink;

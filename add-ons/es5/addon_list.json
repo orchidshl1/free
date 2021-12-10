@@ -774,7 +774,11 @@
                 "s2.stream365.live",
                 "s3.stream365.live",
                 "s4.stream365.live",
-                "s5.stream365.live"
+                "s5.stream365.live",
+                "s6.stream365.live",
+                "s7.stream365.live",
+                "s8.stream365.live",
+                "s9.stream365.live"
             ],
             "version": "0.0.1",
             "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/stream365.js?v1"
