@@ -780,8 +780,8 @@
                 "s8.stream365.live",
                 "s9.stream365.live"
             ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/stream365.js?v1"
+            "version": "0.0.2",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/stream365.js?v2"
         },
         "dramacoolembed": {
             "name": "dramacoolembed",
