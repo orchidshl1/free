@@ -91,7 +91,7 @@ var Mixdrop = function () {
 
                             case 2:
 
-                                url = url.replace('/e/', '/f/').replace('.to', '.co').replace('.xs', '.co');
+                                url = url.replace('/e/', '/f/').replace('.to', '.co').replace('.xs', '.co').replace('.bz', '.co');
 
                                 urlCheck = url.replace('/e/', '/f/') + '?download';
                                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
