@@ -663,10 +663,11 @@
             "domain": [
                 "fembed.com",
                 "feurl.com",
-                "streamhoe.online"
+                "streamhoe.online",
+                "suzihaza.com"
             ],
-            "version": "0.0.16",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js?v20"
+            "version": "0.0.17",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js?v21"
         },
         "userload": {
             "name": "userload",
@@ -712,12 +713,11 @@
             "name": "mixdrop",
             "domain": [
                 "mixdrop.co",
-                "mixdrop.bz",
                 "mixdrop.to",
                 "mixdrop.sx"
             ],
-            "version": "0.1.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mixdrop.js?v22"
+            "version": "0.1.0",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mixdrop.js?v21"
         },
         "cloudvideo": {
             "name": "cloudvideo",
