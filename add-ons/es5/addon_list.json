@@ -1,14 +1,5 @@
 {
     "providers": {
-        "gogoanimefilm": {
-            "name": "gogoanimefilm",
-            "domain": "gogoanime.film",
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/gogoanimefilm.js?v0.0.1",
-            "type": [
-                "movie"
-            ]
-        },
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dis",
@@ -490,14 +481,6 @@
         }
     },
     "hosts": {
-        "gogoplay4": {
-            "name": "gogoplay4",
-            "domain": [
-                "gogoplay4.com"
-            ],
-            "version": "0.0.1",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/gogoplay4.js?v0.0.1"
-        },
         "mp4upload": {
             "name": "mp4upload",
             "domain": [
