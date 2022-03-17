@@ -1,5 +1,14 @@
 {
     "providers": {
+        "gogoanimefilm": {
+            "name": "gogoanimefilm",
+            "domain": "gogoanime.film",
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/providers/gogoanimefilm.js?v0.0.1",
+            "type": [
+                "movie"
+            ]
+        },
         "afdah": {
             "name": "afdah",
             "domain": "afdah.dis",
@@ -481,6 +490,22 @@
         }
     },
     "hosts": {
+        "gogoplay4": {
+            "name": "gogoplay4",
+            "domain": [
+                "gogoplay4.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/gogoplay4.js?v0.0.1"
+        },
+        "mp4upload": {
+            "name": "mp4upload",
+            "domain": [
+                "mp4upload.com"
+            ],
+            "version": "0.0.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mp4upload.js?v0.0.1"
+        },
         "m4uclub": {
             "name": "m4uclub",
             "domain": [
@@ -664,10 +689,11 @@
                 "fembed.com",
                 "feurl.com",
                 "streamhoe.online",
-                "suzihaza.com"
+                "suzihaza.com",
+                "diampokusy.com"
             ],
-            "version": "0.0.17",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js?v21"
+            "version": "0.0.18",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js?v22"
         },
         "userload": {
             "name": "userload",
@@ -714,10 +740,11 @@
             "domain": [
                 "mixdrop.co",
                 "mixdrop.to",
-                "mixdrop.sx"
+                "mixdrop.sx",
+                "mixdrop.ch"
             ],
-            "version": "0.1.0",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mixdrop.js?v21"
+            "version": "0.1.1",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/mixdrop.js?v22"
         },
         "cloudvideo": {
             "name": "cloudvideo",
