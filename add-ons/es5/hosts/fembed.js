@@ -65,13 +65,13 @@ var Fembed = function () {
 
                                 s = url.split('/');
                                 id = s[s.length - 1];
-                                u = 'https://diampokusy.com/api/source/' + id;
+                                u = 'https://suzihaza.com/api/source/' + id;
                                 _context3.next = 8;
                                 return httpRequest.post(u, {
                                     'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
                                 }, {
                                     r: '',
-                                    d: 'diampokusy.com'
+                                    d: 'suzihaza.com'
                                 });
 
                             case 8:
