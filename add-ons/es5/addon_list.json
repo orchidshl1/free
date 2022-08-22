@@ -694,8 +694,8 @@
                 "suzihaza.com",
                 "vanfem.com"
             ],
-            "version": "0.0.22",
-            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js?v26"
+            "version": "0.0.24",
+            "url": "https://raw.githubusercontent.com/orchidshl1/free/master/add-ons/es5/hosts/fembed.js?v24"
         },
         "userload": {
             "name": "userload",

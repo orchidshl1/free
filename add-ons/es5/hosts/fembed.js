@@ -57,8 +57,6 @@ var Fembed = function () {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _libs = this.libs, httpRequest = _libs.httpRequest, cheerio = _libs.cheerio;
-                //console.log('xxxxxx start fembed');
-
                 _context3.prev = 1;
 
                 url = url.replace(/#.*$/, "");
@@ -78,8 +76,6 @@ var Fembed = function () {
                 html = _context3.sent;
                 data = html.data.data;
                 results = [];
-                //console.log('xxxxxx' + 'get data');
-
                 arrPromise = data.map(function () {
                   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(val) {
                     var label, isDie;
@@ -96,7 +92,6 @@ var Fembed = function () {
 
 
                             if (isDie != false) {
-                              console.log("xxxxxx" + "push link data");
                               results.push({
                                 file: val.file,
                                 label: label,
