@@ -1,1 +1,9 @@
-
+{
+"sourceChars":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_",
+"targetChars":"7EkRi2WnMSlgLbXm_jy1vtO69ehrAV0-saUB5FGpoq3QuNIZ8wJ4PfdHxzTDKYCc",
+"keyHex":"2adaf9545534ea4150a7f2f7479aed88717d7f8f28da19707061cb665c979502",
+"ivHex":"3317da601aadecb751153f9f00d28a50",
+"xorKeyHex":"6a131fa110a0",
+"serverPath":"AxEZ",
+"streamPath":"04AoGz0d"
+}
