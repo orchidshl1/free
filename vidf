@@ -1,10 +1,10 @@
 {
 "sourceChars":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_",
-"targetChars":"7EkRi2WnMSlgLbXm_jy1vtO69ehrAV0-saUB5FGpoq3QuNIZ8wJ4PfdHxzTDKYCc",
-"keyHex":"2adaf9545534ea4150a7f2f7479aed88717d7f8f28da19707061cb665c979502",
-"ivHex":"3317da601aadecb751153f9f00d28a50",
-"xorKeyHex":"6a131fa110a0",
-"serverPath":"AxEZ",
-"streamPath":"04AoGz0d",
-"static_path":"543db48b-8d5c-504e-8bd4-27cb52f94949/15b7352a/b/e4b2782d0a2fba2dd0fee0d388b41510fb50c036d073952c9ccc9a77264c0b50/jevhittih"
+"targetChars":"OCmbtfWoski0dEv3HFhu_G1cDUw6QARY87-VJpjqlNLTIZrX249PeSnBgz5MaxyK",
+"keyHex":"5b783a7f09f7e006661a5ebf3ef8952fdfc03e41892bf1597f7d8dda49dcb6a9",
+"ivHex":"a3d48b44795d9c2592ee4c3294258242",
+"xorKeyHex":"11860f0e9ebe20c03c",
+"serverPath":"DJIvtQ",
+"streamPath":"cz7wg6oT0Q",
+"static_path":"1000090675158710"
 }
