@@ -1,10 +1,10 @@
 {
 "sourceChars":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_",
-"targetChars":"OCmbtfWoski0dEv3HFhu_G1cDUw6QARY87-VJpjqlNLTIZrX249PeSnBgz5MaxyK",
-"keyHex":"5b783a7f09f7e006661a5ebf3ef8952fdfc03e41892bf1597f7d8dda49dcb6a9",
-"ivHex":"a3d48b44795d9c2592ee4c3294258242",
-"xorKeyHex":"11860f0e9ebe20c03c",
-"serverPath":"DJIvtQ",
-"streamPath":"cz7wg6oT0Q",
-"static_path":"1000090675158710"
+"targetChars":"SlfpOi9DxzTcn683E2o7drBGCKW4XZFu0Q1MRtJbjykL_V-N5veAmHwaPqYhIsUg",
+"keyHex":"d9ff31a40dd415210c298a9d113a1963cf9c5253229a93709928788f12041f22",
+"ivHex":"e591e8af30972f444b5b3b206c60c598",
+"xorKeyHex":"1261f48e150cbe",
+"serverPath":"YDGUTEY",
+"streamPath":"xo8XtbY-sVen",
+"static_path":"79198daa-820c-5b08-ae46-f7391a4cb4dc/APA91XB-tqjXq06x1tMAywlhBwZoXF6FQV1ytGGPiOlCKlVRNnQ5Gm9GfHEO62TBFQbKi9FmQxIsxYuEZDgVwV1nwEzvGANC19MEE7mz_0TKror9KYtgeLtoh4cJiuPV9IJCV-XV7R2A0F0CRzfQKqr--OLVvrDgspSOiGGJEVYHu6BqaLB7xes/4c12dad1e1340c2fa8d5df7a54e1afbdb55f8011/4a5bf14f8b528581e81c89a761a8068bd049c0f86219d9dba62335155f00e04b/sewlujom"
 }
