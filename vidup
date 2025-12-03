@@ -1,0 +1,11 @@
+{
+"sourceChars":"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_",
+"targetChars":"yfhNJUs1-djqrDczw08Mk7CeQF4AvWltRGO3ao5Ypn9HKPBbEVSi_X2Zg6IuLmTx",
+"keyHex":"0cd6aa69d843f9565187caea6b260b59716a63f79dfef3ec3a2c2834b6724e55",
+"ivHex":"67b2ddac30102321a83e3dbf83417696",
+"xorKeyHex":"2329aba4015a",
+"serverPath":"yu-5EXWKpA",
+"streamPath":"c14",
+"crf_token":"pASKDBkXwNun4w2Y8RRo8lQ3thmugGxj",
+"static_path":"hezushon/088b73be/1000068959767573/b28099eb-4dea-5589-9baa-a6b6560cad62/oh/y"
+}
